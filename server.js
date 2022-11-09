@@ -11,6 +11,10 @@ const helpers = require('./utils/helpers');
 const app = express()
 const port = process.env.PORT || 3001;
 
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+  })
+
 // Set up sessions with cookies
 const sess = {
     secret: 'Super secret secret',
