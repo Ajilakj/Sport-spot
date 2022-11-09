@@ -19,11 +19,11 @@ Post.belongsToOne(User, {
 });
 
 Post.hasOne(Sport, {
-    foreignKey: ""
+    foreignKey: "sport_name"
 });
 
 Sport.belongsToMany(Post, {
-    foreignKey: ""
+    foreignKey: "sport_name"
 });
 
 module.exports = { User, Sport, Post };
