@@ -27,6 +27,13 @@ User.init(
       //   len: [6],
       // },
     },
+    sports_played: {
+      type: DataTypes.STRING,
+      references: {
+        model: "sport",
+        key: "name"
+      }
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
