@@ -4,12 +4,22 @@ const { Sport, Post } = require('../models');
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbGalleryData = await Sport.findAll({
+    const dbSportData = await Sport.findAll({
       include: [
         {
           model: Post,
-          attributes: ['postname', 'description'],
+          attributes: ['title', 'content'],
         },
       ],
     });
-    
+
+    // Login route
+router.get('/login', (req, res) => {
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    }
+    res.render('login');
+  });
+  
+  module.exports = router;
