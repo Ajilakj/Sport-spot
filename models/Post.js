@@ -32,6 +32,13 @@ Post.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    sport_name: {
+      type: DataType.STRING,
+      references: {
+        model: "sport",
+        key: "name"
+      }
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
