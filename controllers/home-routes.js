@@ -9,9 +9,13 @@ router.get('/', async (req, res) => {
         {
           model: Post,
           attributes: ['title', 'content'],
-        },
+        },  
       ],
-    });
+    })
+  } catch(err){
+    res.status(500).json(err)
+  }
+});
 
     // Login route
 router.get('/login', (req, res) => {
