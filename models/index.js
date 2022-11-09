@@ -11,11 +11,11 @@ Sport.belongsToMany(User, {
 });
 
 User.hasMany(Post, {
-    foreignKey: ""
+    foreignKey: "user_id"
 });
 
 Post.belongsToOne(User, {
-    foreignKey: ""
+    foreignKey: "user_id"
 });
 
 Post.hasOne(Sport, {
