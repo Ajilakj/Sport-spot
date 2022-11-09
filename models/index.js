@@ -3,11 +3,11 @@ const Sport = require("./Sport");
 const Post = require("./Post");
 
 User.hasMany(Sport, {
-    foreignKey: ""
+    foreignKey: "sports_played"
 });
 
 Sport.belongsToMany(User, {
-    foreignKey: ""
+    foreignKey: "sports_played"
 });
 
 User.hasMany(Post, {
