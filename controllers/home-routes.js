@@ -18,6 +18,14 @@ router.get('/', async (req, res) => {
           },  
         ],
     })
+   
+    const sport = dbSportData.map((sport) =>
+      sport.get({ plain: true })
+    );
+    res.render('homepage', {
+      sport,
+      loggedIn: req.session.loggedIn,
+    }); 
   } catch(err){
     res.status(500).json(err)
   }
@@ -33,14 +41,16 @@ router.get('/sport/:id', async (req, res) => {
           attributes: [
             'id',
             'title',
-            
           ],
         },
+        {
+          model: Comment,
+        }, 
       ],
     });
 
     const sport = dbSportData.get({ plain: true });
-    res.render('sport', { Sport, loggedIn: req.session.loggedIn });
+    res.render('sport', { sport, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
