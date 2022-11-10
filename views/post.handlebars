@@ -10,3 +10,7 @@
 {{else}}<a href="/login">Log in to see this page</a>
 {{/if}}
 </section>
+
+{{#each comments as |comment|}}
+{{> comment-details}}
+{{/each}}
