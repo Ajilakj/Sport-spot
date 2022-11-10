@@ -3,14 +3,6 @@ const Sport = require("./Sport");
 const Post = require("./Post");
 const Comment = require("./Comment");
 
-User.hasMany(Sport, {
-    foreignKey: "user_id"
-});
-
-Sport.belongsToMany(User, {
-    //foreignKey: "sports_played"
-    through:{model:User}
-});
 
 User.hasMany(Post, {
     foreignKey: "user_id"
@@ -25,7 +17,7 @@ Post.hasOne(Sport, {
 });
 
 Sport.belongsToMany(Post, {
-//     foreignKey: "sport_name"
+    foreignKey: "sports_id",
     through:{model:Post}
 });
 
@@ -45,4 +37,4 @@ Comment.belongsTo(User, {
     foreignKey: "user_id"
 })
 
-module.exports = { User, Sport, Post,  Comment};
+module.exports = { User, Sport, Post, Comment };
