@@ -31,9 +31,9 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      // validate: {
-      //   isEmail: true,
-      // },
+      validate: {
+        isEmail: true,
+      },
     },
     bio: {
       type: DataTypes.STRING,
