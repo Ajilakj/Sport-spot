@@ -11,49 +11,42 @@
 </head>
 
 <body>
-  <!-- add IF logged in -->
   <header>
     <h1>SportSpot</h1>
   </header>
-  <card>
-    <h3>Soccer</h3>
-  </card>
-  <card>
-    <h3>Football</h3>
-  </card>
-  <card>
-    <h3>Basketball</h3>
-  </card>
+
+<main>
+{{{body}}}
+</main>
+
   <footer>
     <nav class="navbar fixed-bottom navbar-light bg-light">
       <div class="container">
         <div class="row">
+
           <div class="col-sm">
             <!-- home/feed icon-->
-            <p>Home</p>
+            <button>Home</button>
           </div>
+
           <div class="col-sm">
             <!-- create post icon-->
-            <p>Post</p>
+            <button>New Post</button>
           </div>
+
           <div class="col-sm">
-            <!-- profile icon-->
-            <p>Profile</p>
+            <!-- profile icon if loggedin, login link if not-->
+            {{#if loggedIn}}
+            <button>Profile</button>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
           </div>
+
         </div>
       </div>
     </nav>
   </footer>
-
-  <script src="./js/sport.js"></script>
-
-  <!-- add ELSE if not logged in, LOGIN or SIGN UP 
-  
-  {{> login}}
-  <script src="./js/login.js"></script>
-  
-  -->
-  
 </body>
 
 </html>

@@ -13,9 +13,6 @@ router.get('/', async (req, res) => {
             'content'
           ]
           },
-          {
-          model: Comment,
-          },  
         ],
     })
    
