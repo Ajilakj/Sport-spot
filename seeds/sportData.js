@@ -2,11 +2,23 @@ const { Sport } = require('../models');
 
 const sportdata = [
   {
-    name: '',
+    name: 'Basketball',
+    filename: 'basketball.jpg',
   },
-
+  {
+    name: 'Tennis',
+    filename: 'tennis.jpg',
+  },
+  {
+    name: 'Soccer',
+    filename: 'soccer.jpg',
+  },
+  {
+    name: 'Volleyball',
+    filename: 'volleyball.jpg',
+  },
 ];
 
-const seedSport = () => Sport.bulkCreate(seedSport);
+const seedSport = () => Sport.bulkCreate(sportdata);
 
 module.exports = seedSport;
