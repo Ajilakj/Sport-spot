@@ -8,9 +8,9 @@ const seedComment = require('./commentData');
 const seedAll = async () => {
   await sequelize.sync({ force: true });
 
+  await seedUser();
   await seedSport();
   await seedPost();
-  await seedUser();
   await seedComment();
 
   process.exit(0);
