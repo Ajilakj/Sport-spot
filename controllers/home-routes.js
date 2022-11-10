@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Sport, Post } = require('../models');
 
-// GET all sports for homepage
+//GET all sports for homepage
 router.get('/', async (req, res) => {
   try {
     const dbSportData = await Sport.findAll({
