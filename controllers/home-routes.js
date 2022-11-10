@@ -6,16 +6,16 @@ router.get('/', async (req, res) => {
   try {
     const dbSportData = await Sport.findAll({
       include: [
-        {
+          {
           model: Post,
           attributes: [
             'title', 
             'content'
           ]
           },
-            {
-              model: Comment,
-            },  
+          {
+          model: Comment,
+          },  
         ],
     })
   } catch(err){
