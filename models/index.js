@@ -3,14 +3,6 @@ const Sport = require("./Sport");
 const Post = require("./Post");
 const Comment = require("./Comment");
 
-// User.hasMany(Sport, {
-//     foreignKey: "user_id"
-// });
-
-// Sport.belongsToMany(User, {
-//     foreignKey: "user_id",
-//     through:{model:User}
-// });
 
 User.hasMany(Post, {
     foreignKey: "user_id"
