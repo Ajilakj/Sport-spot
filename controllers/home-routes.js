@@ -8,9 +8,15 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Post,
-          attributes: ['title', 'content'],
-        },  
-      ],
+          attributes: [
+            'title', 
+            'content'
+          ]
+          },
+            {
+              model: Comment,
+            },  
+        ],
     })
   } catch(err){
     res.status(500).json(err)
@@ -27,17 +33,14 @@ router.get('/sport/:id', async (req, res) => {
           attributes: [
             'id',
             'title',
-            'artist',
-            'exhibition_date',
-            'filename',
-            'description',
+            
           ],
         },
       ],
     });
 
-    const gallery = dbGalleryData.get({ plain: true });
-    res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
+    const sport = dbSportData.get({ plain: true });
+    res.render('sport', { Sport, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
