@@ -21,7 +21,7 @@ Post.belongsTo(User, {
 });
 
 Post.hasOne(Sport, {
-    foreignKey: "sport_id"
+    foreignKey: "sports_id"
 });
 
 Sport.belongsToMany(Post, {
@@ -33,7 +33,7 @@ Post.hasMany(Comment, {
     foreignKey: "post_id"
 });
 
-Comment.belongsToOne(Post, {
+Comment.belongsTo(Post, {
     foreignKey: "post_id"
 });
 
@@ -41,7 +41,7 @@ User.hasMany(Comment, {
     foreignKey: "user_id"
 });
 
-Comment.belongsToOne(User, {
+Comment.belongsTo(User, {
     foreignKey: "user_id"
 })
 
