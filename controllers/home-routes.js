@@ -58,11 +58,25 @@ router.get('/sport/:id', async (req, res) => {
             'title',
           ],
         },
-        {
-          model: Comment,
-        }, 
       ],
-    });
+    })
+
+// GET one blog post
+router.get('/post/:id', async (req, res) => {
+  try {
+    const dbSportData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: Post,
+          attributes: [
+            'id',
+            'title',
+          ],
+          model: Post,  
+        }
+      ]
+  })
+
 
     const sport = dbSportData.get({ plain: true });
     res.render('sport', { sport, loggedIn: req.session.loggedIn });

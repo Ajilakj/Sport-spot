@@ -15,31 +15,31 @@
     <h1>SportSpot</h1>
   </header>
 
-<main>
-{{{body}}}
-</main>
+  <main>
+  {{{body}}}
+  </main>
 
   <footer>
-    <nav class="navbar fixed-bottom navbar-light bg-light">
+    <nav class="navbar fixed-bottom">
       <div class="container">
         <div class="row">
 
           <div class="col-sm">
             <!-- home/feed icon-->
-            <button>Home</button>
+            <button id="nav-btn">Home</button>
           </div>
 
           <div class="col-sm">
             <!-- create post icon-->
-            <button>New Post</button>
+            <button id="nav-btn">New Post</button>
           </div>
 
           <div class="col-sm">
             <!-- profile icon if loggedin, login link if not-->
             {{#if loggedIn}}
-            <button>Profile</button>
+            <button id="nav-btn">Profile</button>
             {{else}}
-            <a href="/login">Login</a>
+            <button id="nav-btn"><a href="/login" id="nav-btn">Login</a></button>
             {{/if}}
           </div>
 
