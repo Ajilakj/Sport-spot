@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
     const sport = dbSportData.map((sport) =>
       sport.get({ plain: true })
     );
-    res.render('homepage', {
+    res.render('sport-posts', {
       sport,
       loggedIn: req.session.loggedIn,
     }); 
