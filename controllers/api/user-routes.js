@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       console.log(
-        '🚀 ~ file: user-routes.js ~ line 57 ~ req.session.save ~ req.session.cookie',
+        '🚀 ~ file: user-routes.js ~ req.session.save ~ req.session.cookie',
         req.session.cookie
       );
 
