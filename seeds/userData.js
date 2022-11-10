@@ -43,6 +43,20 @@ const userdata = [
     bio: 'Looking for fellow volleyball players to rent a sand court on Pier 25!',
     phone_number: '555-555-5556',
   },
+  {
+    username: 'VolleyballCoach',
+    password: 'password',
+    email: 'volleyballcoach@email.com',
+    bio: 'Looking to coach any volo teams this upcoming summer for sand volleyball',
+    phone_number: '555-555-5556',
+  },
+  {
+    username: 'volosoccer',
+    password: 'password',
+    email: 'voloosoccer@email.com',
+    bio: 'Hey everyone! lookig for 5 additional soccer players to join my volo soccer team and fill out our roster. Games are Wednesday evenings.',
+    phone_number: '555-555-5556',
+  },
 
 ];
 
