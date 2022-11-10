@@ -8,7 +8,7 @@ const seedAll = async () => {
   await sequelize.sync({ force: true });
 
   await seedSport();
-  await seedPost();
+  //await seedPost();
   await seedUser();
 
   process.exit(0);
