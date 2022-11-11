@@ -84,12 +84,7 @@ nav {
 .signup-card {
     margin-top: 100px;
     padding: 150px 150px 250px 150px;
-    background-color: #8ab5a06c;
-}
-
-.signup-card:hover, .login-card:active {
-    background-color:  #6f9f8885;
-    transition: .5s;
+    background-color: #6f9f8885;
 }
 
 .signup-card h2 {
@@ -135,3 +130,8 @@ nav {
 
 /* Profile Page */
 
+
+/* Footer */
+#footer {
+    background: black;
+}
