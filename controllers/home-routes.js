@@ -58,8 +58,6 @@ router.get('/post/:id', async (req, res) => {
         }
       ]
   })
-
-
     const sport = dbSportData.get({ plain: true });
     res.render('sport', { sport, loggedIn: req.session.loggedIn });
   } catch (err) {
