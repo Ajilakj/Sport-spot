@@ -117,7 +117,9 @@ nav {
 }
 
 /* Home Page - Sports Cards */
-
+.sports {
+    margin: 30px;
+}
 
 /* Sport Posts */
 
@@ -129,9 +131,3 @@ nav {
 
 
 /* Profile Page */
-
-
-/* Footer */
-#footer {
-    background: black;
-}
