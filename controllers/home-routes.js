@@ -5,21 +5,22 @@ const { Sport, Post } = require('../models');
 router.get('/', async (req, res) => {
   try {
   // Search the database for a dish with an id that matches params
-  const postData = await Post.findAll();
-
-  // We use .get({ plain: true }) on the object to serialize it so that it only includes the data that we need. 
-  const posts = postData.map((post)=>post.get({ plain: true }));
-  console.log(posts);
-  // Then, the 'dish' template is rendered and dish is passed into the template.
-  res.render('homepage', posts);
+  const sportData = await Sport.findAll();
+  const sports = sportData.map((sport) =>
+      sport.get({ plain: true })
+    );
+  res.render('homepage', sports);
   } catch (err) {
       res.status(500).json(err);
   }
 });
 
-// GET one sport with posts
+ 
+
+// GET one sport with all posts for that sport
 router.get('/sport/:id', async (req, res) => {
   try {
+    // sport
     const sportData = await Sport.findByPk(req.params.id, {
       include: [
         {
@@ -32,13 +33,25 @@ router.get('/sport/:id', async (req, res) => {
       ],
     });
     const sport = sportData.get({ plain: true });
-    res.render('sport-posts', { sport, loggedIn: req.session.loggedIn });
+    // posts under that sport
+    const postData = await Post.findAll({
+      where: {
+        sports_id: req.params.id
+      }
+    });
+    console.log(postData)
+    const posts = postData.map((post) =>
+      post.get({ plain: true })
+    );
+    // render both
+    res.render('sport-posts', { sport, posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
     
+
 // GET one blog post
 router.get('/post/:id', async (req, res) => {
   try {
