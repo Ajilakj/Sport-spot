@@ -13,7 +13,7 @@ const createBlogPostFormHandler = async (event) => {
   };
   
   const createblogpost = async (event) => {
-    event.preventDefault();
+    event.preventDefault();}
 
   
   document
