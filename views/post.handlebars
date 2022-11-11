@@ -7,6 +7,22 @@
     <p>{{post.content}}</p>
     <button id="add-comment-btn">Add comment</button>
   </div>
+</section>
+
+<!-- comment form -->
+<form class="form comment-form" action="/login/password" method="post">
+  <div>
+    <label for="comment">Comment</label>
+    <input id="comment-content" type="text" required />
+  </div>
+
+  <div>
+    <button id="submit-comment" type="submit">Submit</button>
+  </div>
+</form>
+
+
+
 <!-- Otherwise, provide a link to login -->
 {{else}}<a href="/login">Log in to see this page</a>
 {{/if}}
