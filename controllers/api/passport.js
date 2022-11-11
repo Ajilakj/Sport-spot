@@ -8,7 +8,7 @@ module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
     res.json({
-      email: req.user.email,
+      username: req.user.username,
       id: req.user.id
     });
   });
@@ -16,6 +16,7 @@ module.exports = function(app) {
   // Route for signing up a user
   app.post("/api/signup", function(req, res) {
     db.User.create({
+      username: req.body.username,
       email: req.body.email,
       password: req.body.password
     })
@@ -39,7 +40,7 @@ module.exports = function(app) {
       res.json({});
     } else {
       res.json({
-        email: req.user.email,
+        username: req.user.username,
         id: req.user.id
       });
     }

@@ -10,7 +10,7 @@
 </section>
 
 <!-- comment form -->
-<form class="form comment-form" action="/login/password" method="post">
+<form class="form comment-form" action="/sport/post/" method="post">
   <div>
     <label for="comment">Comment</label>
     <input id="comment-content" type="text" required />
@@ -31,3 +31,6 @@
 {{#each comments as |comment|}}
 {{> comment-details}}
 {{/each}}
+
+
+<script src="../public/js/comment.js"></script>
