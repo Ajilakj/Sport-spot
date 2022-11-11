@@ -40,12 +40,15 @@ const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
-
+// app.get('/', async (req, res) => {
+//     res.render('sport-posts');
+//   });
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () =>
     console.log(

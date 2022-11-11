@@ -3,9 +3,12 @@ const passport = require('passport');
 const sequelize = require('../config/connection');
 
 class User extends Model {
-  // checkPassword(loginPw) {
-  //   return bcrypt.compareSync(loginPw, this.password);
-  // }
+
+  constructor(name,pwd){
+    super();
+    this.name=name;
+    this.password=pwd;
+  }
 }
 
 User.init(
@@ -23,25 +26,29 @@ User.init(
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-      // validate: {
-      //   len: [6],
-      // },
+      validate: {
+        len: [6],
+      },
+    },
+    firstName: {
+      type: DataTypes.STRING,
+    },
+    lastName: {
+      type: DataTypes.STRING,
     },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      // validate: {
-      //   isEmail: true,
-      // },
+      validate: {
+        isEmail: true,
+      },
     },
     bio: {
       type: DataTypes.STRING,
-      //allowNull: false,
     },
     phone_number: {
       type: DataTypes.STRING,
-     // allowNull: false,
     },
   },
   {
