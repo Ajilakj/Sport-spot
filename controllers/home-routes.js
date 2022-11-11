@@ -1,20 +1,19 @@
 const router = require('express').Router();
 const { Sport, Post } = require('../models');
-// by AJIJLA
-router.get('/', async (req, res) => {
-  try {
-  // Search the database for a dish with an id that matches params
-  const PostData = await Post.findAll();
 
-  // We use .get({ plain: true }) on the object to serialize it so that it only includes the data that we need. 
-  const posts = PostData.map((post)=>post.get({ plain: true }));
-  console.log(posts);
-  // Then, the 'dish' template is rendered and dish is passed into the template.
-  res.render('sport-posts', posts);
-  } catch (err) {
-      res.status(500).json(err);
-  }
-});
+// by AJILA to check the sport-postshandlebars
+// router.get('/', async (req, res) => {
+//   const { Sport, Post } = require('../models');
+//   const dbPostData = await Post.findAll();
+//   console.log(dbPostData)
+//   const posts = dbPostData.map((post) =>
+//         post.get({ plain: true })
+//       );
+  
+//       res.render('sport-posts', {
+//         posts,
+//       });
+//   });
 
 // GET one sport
 router.get('/sport/:id', async (req, res) => {
