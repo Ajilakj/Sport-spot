@@ -1,13 +1,29 @@
-{{#each posts}}
-<div class="sports-card">
+{{#each posts as |post|}}
+{{> sport-post-details}}
+{{/each}}
+{{!-- {{#each posts as |post|}} --}}
+{{!-- <div class="sports-card">
   <div class="sports-card-header">
-    <h1>Testing</h1>
-    {{posts[0].title}}
+    <h1>Testing heading</h1>
+    {{posts.title}}
   </div>
   <div class="card-body">
   <p>Testing</p>
-  {{posts[0].content}}
+  {{posts.content}}
   </div>
-</div>
-{{/each}}
+</div> --}}
+{{!-- {{/each}} --}}
+{{!-- <section class="post">
+  <div class="post-details">
+    <h3>{{post.title}}</h3>
+    <h5>{{post.user_id}}</h5>
+    <h5>{{post.date_created}}</h5>
+    <p>{{post.content}}</p>
+  </div>
+<!-- Otherwise, provide a link to login -->
+</section>
+
+{{#each comments as |comment|}}
+{{> comment-details}}
+{{/each}} --}}
 

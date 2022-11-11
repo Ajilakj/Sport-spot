@@ -3,9 +3,12 @@ const passport = require('passport');
 const sequelize = require('../config/connection');
 
 class User extends Model {
-  // checkPassword(loginPw) {
-  //   return bcrypt.compareSync(loginPw, this.password);
-  // }
+
+  constructor(name,pwd){
+    super();
+    this.name=name;
+    this.password=pwd;
+  }
 }
 
 User.init(

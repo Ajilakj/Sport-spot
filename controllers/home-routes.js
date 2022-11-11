@@ -5,10 +5,10 @@ router.get('/', async (req, res) => {
   try {
   // Search the database for a dish with an id that matches params
   const PostData = await Post.findAll();
-  console.log(PostData);
-  // We use .get({ plain: true }) on the object to serialize it so that it only includes the data that we need. 
-  const posts = PostData.get({ plain: true });
 
+  // We use .get({ plain: true }) on the object to serialize it so that it only includes the data that we need. 
+  const posts = PostData.map((post)=>post.get({ plain: true }));
+  console.log(posts);
   // Then, the 'dish' template is rendered and dish is passed into the template.
   res.render('sport-posts', posts);
   } catch (err) {
@@ -47,20 +47,20 @@ router.get('/', async (req, res) => {
 // });
 
 // GET one sport
-router.get('/sport/:id', async (req, res) => {
-  try {
-    const dbSportData = await Sport.findByPk(req.params.id, {
-      include: [
-        {
-          model: Post,
-          attributes: [
-            'id',
-            'title',
-          ],
-        },
-      ],
-    })
-
+// router.get('/sport/:id', async (req, res) => {
+//   try {
+//     const dbSportData = await Sport.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: Post,
+//           attributes: [
+//             'id',
+//             'title',
+//           ],
+//         },
+//       ],
+//     })
+    
 // GET one blog post
 router.get('/post/:id', async (req, res) => {
   try {
