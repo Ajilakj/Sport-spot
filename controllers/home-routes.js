@@ -4,7 +4,7 @@ const { Sport, Post } = require('../models');
 // GET all sports cards
 router.get('/', async (req, res) => {
   try {
-  // Search the database for a dish with an id that matches params
+  // Search the database for a sport with an id that matches params
   const sportData = await Sport.findAll();
   const sports = sportData.map((sport) =>
       sport.get({ plain: true })
@@ -61,7 +61,7 @@ router.get('/post/:id', async (req, res) => {
             'id',
             'title',
           ],
-          model: Post,  
+          model: Comment,  
         }
       ]
   })
@@ -155,7 +155,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       console.log(
-        '🚀 ~ file: user-routes.js ~ req.session.save ~ req.session.cookie',
+        ' ~ file: user-routes.js ~ req.session.save ~ req.session.cookie',
         req.session.cookie
       );
 
