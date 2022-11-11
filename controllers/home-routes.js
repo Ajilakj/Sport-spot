@@ -4,7 +4,7 @@ const { Sport, Post } = require('../models');
 // GET all sports cards
 router.get('/', async (req, res) => {
   try {
-  // Search the database for a dish with an id that matches params
+  // Search the database for a sport with an id that matches params
   const sportData = await Sport.findAll();
   const sports = sportData.map((sport) =>
       sport.get({ plain: true })
@@ -14,8 +14,6 @@ router.get('/', async (req, res) => {
       res.status(500).json(err);
   }
 });
-
- 
 
 // GET one sport with all posts for that sport
 router.get('/sport/:id', async (req, res) => {
@@ -63,7 +61,7 @@ router.get('/post/:id', async (req, res) => {
             'id',
             'title',
           ],
-          model: Post,  
+          model: Comment,  
         }
       ]
   })
@@ -75,10 +73,52 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+//POST for blog post to create a new post
+router.post('/post/create', async (req, res) => {
+  res.render('create-blog-post');
+  try {
+    const postData = await Post.create({
+      title: req.body.title,
+      content: req.body.content,
+      looking_for_players: req.body.looking_for_players,
+      looking_for_coach: req.body.looking_for_coach,
+      looking_for_students: req.body.looking_for_students,
+      date_posted: Date.toLocalDateString(),
+  });
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res.status(200).json(postData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
-// Create a new post
-
-
+//PUT route for user to edit their own blog posts
+router.put('/post/:id', (req, res) => {
+  Post.update(
+    {
+      // listed fields are fields that can be edited
+      title: req.body.title,
+      content: req.body.content,
+      looking_for_players: req.body.looking_for_players,
+      looking_for_coach: req.body.looking_for_coach,
+      looking_for_students: req.body.looking_for_students,
+    },
+    {
+      // Gets the blog post based on id
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((updated) => {
+      // Sends the updated post as json
+      res.json(updatedPost);
+    })
+    .catch((err) => res.json(err));
+});
 
 // GET Login route
 router.get('/login', (req, res) => {
@@ -88,9 +128,6 @@ router.get('/login', (req, res) => {
     }
     res.render('login');
   });
-
-
-  // POST Login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -118,7 +155,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.loggedIn = true;
       console.log(
-        '🚀 ~ file: user-routes.js ~ req.session.save ~ req.session.cookie',
+        ' ~ file: user-routes.js ~ req.session.save ~ req.session.cookie',
         req.session.cookie
       );
 
