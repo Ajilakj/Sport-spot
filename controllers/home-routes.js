@@ -63,29 +63,7 @@ router.get('/post/:id', async (req, res) => {
 });
 
 
-
-
 // Create a new post
-router.post('/post/create', async (req, res) => {
-  res.render('create-post');
-  try {
-    const postData = await Post.create({
-      title: req.body.title,
-      content: req.body.content,
-      looking_for_players: req.body.looking_for_players,
-      looking_for_students: req.body.looking_for_students,
-      looking_for_coach: req.body.looking_for_coach,
-      date_created: Date.toLocaleDateString(),
-    });
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      res.status(200).json(postData);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 
 
 

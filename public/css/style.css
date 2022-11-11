@@ -116,12 +116,21 @@ nav {
     transition: .3s;
 }
 
+
 /* Home Page - Sports Cards */
 .sports {
     margin: 30px;
 }
 
+
 /* Sport Posts */
+.posts {
+    margin: 30px;
+}
+
+.content {
+    font-size: smaller;
+}
 
 
 /* Single Post & Comments */
