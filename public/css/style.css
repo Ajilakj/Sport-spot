@@ -17,7 +17,7 @@ nav {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-#nav-btn {
+#nav-link {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color: white;
@@ -28,6 +28,6 @@ nav {
 
 }
 
-#nav-btn:hover {
+#nav-link:hover {
     color: #87BBA2
 }
