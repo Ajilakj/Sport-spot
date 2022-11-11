@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Sport, Post } = require('../models');
-// by AJIJLA
+
+// GET all sports cards
 router.get('/', async (req, res) => {
   try {
   // Search the database for a dish with an id that matches params
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET one sport
+// GET one sport with posts
 router.get('/sport/:id', async (req, res) => {
   try {
     const dbSportData = await Sport.findByPk(req.params.id, {
