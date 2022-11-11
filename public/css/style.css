@@ -12,6 +12,7 @@ h1 {
     color: white;
     font-size: 35px;
     padding: 15px;
+    transition: 500ms ease-in-out;
 }
 
 nav {
@@ -30,7 +31,9 @@ nav {
 }
 
 #nav-link:hover {
-    color: #87BBA2
+    color: #87BBA2;
+    text-decoration: none;
+    transition: .3s;
 }
 
 
