@@ -2,14 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const passport = require('passport');
 const sequelize = require('../config/connection');
 
-class User extends Model {
-
-  constructor(name,pwd){
-    super();
-    this.name=name;
-    this.password=pwd;
-  }
-}
+class User extends Model {}
 
 User.init(
   {
