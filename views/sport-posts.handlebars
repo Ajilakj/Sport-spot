@@ -1,3 +1,5 @@
-{{#each posts}}
-{{> sport-post-details}}
-{{/each}}
+<div class="posts">
+    {{#each posts as |post|}}
+    {{> sport-post-details}}
+    {{/each}}
+</div>
