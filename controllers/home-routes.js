@@ -65,7 +65,7 @@ router.get('/post/:id', async (req, res) => {
 
 
 
-// Create a post route
+// Create a new post
 router.post('/post/create', async (req, res) => {
   res.render('create-post');
   try {
@@ -98,7 +98,8 @@ router.get('/login', (req, res) => {
     res.render('login');
   });
 
-
+//////////////////////////////////////////////////////////
+      // Added from user-routes //
   // Login
 router.post('/login', async (req, res) => {
   try {
@@ -140,5 +141,9 @@ router.post('/login', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//////////////////////////////////////////////////////////
+
+
 
 module.exports = router;
