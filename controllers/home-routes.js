@@ -100,6 +100,7 @@ router.put('/post/:id', (req, res) => {
   Post.update(
     {
       // listed fields are fields that can be edited
+      // letting them edit all fields so if for example looking for 5 players then get a few and now only need 2 that they can update the post to reflect what they currently need
       title: req.body.title,
       content: req.body.content,
       looking_for_players: req.body.looking_for_players,
