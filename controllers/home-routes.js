@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Sport, Post } = require('../models');
-// by AJIJLA
+
 router.get('/', async (req, res) => {
   try {
   // Search the database for a dish with an id that matches params
@@ -84,6 +84,53 @@ router.get('/post/:id', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
+});
+
+//POST for blog post to create a new post
+router.post('/post/create', async (req, res) => {
+  res.render('create-blog-post');
+  try {
+    const postData = await Post.create({
+      title: req.body.title,
+      content: req.body.content,
+      looking_for_players: req.body.looking_for_players,
+      looking_for_coach: req.body.looking_for_coach,
+      looking_for_students: req.body.looking_for_students,
+      date_posted: Date.toLocalDateString(),
+  });
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res.status(200).json(postData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+//PUT route for user to edit their own blog posts
+router.put('/post/:id', (req, res) => {
+  Post.update(
+    {
+      // listed fields are fields that can be edited
+      title: req.body.title,
+      content: req.body.content,
+      looking_for_players: req.body.looking_for_players,
+      looking_for_coach: req.body.looking_for_coach,
+      looking_for_students: req.body.looking_for_students,
+    },
+    {
+      // Gets the blog post based on id
+      where: {
+        id: req.params.id,
+      },
+    }
+  )
+    .then((updated) => {
+      // Sends the updated post as json
+      res.json(updatedPost);
+    })
+    .catch((err) => res.json(err));
 });
 
     // Login route
