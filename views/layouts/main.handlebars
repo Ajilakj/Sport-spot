@@ -20,26 +20,26 @@
   </main>
 
   <footer>
-    <nav class="navbar fixed-bottom">
+    <nav class="navbar">
       <div class="container">
         <div class="row">
 
           <div class="col-sm">
             <!-- home/feed icon-->
-            <button id="nav-btn">Home</button>
+            <a href="/"  id="nav-link">Home</a>
           </div>
 
           <div class="col-sm">
             <!-- create post icon-->
-            <button id="nav-btn">New Post</button>
+            <a href="/sport/post"  id="nav-link">Post</a>
           </div>
 
           <div class="col-sm">
             <!-- profile icon if loggedin, login link if not-->
             {{#if loggedIn}}
-            <button id="nav-btn">Profile</button>
+            <a href="/profile" id="nav-link">Profile</a>
             {{else}}
-            <button id="nav-btn"><a href="/login" id="nav-btn">Login</a></button>
+            <a href="/login" id="nav-link">Login</a>
             {{/if}}
           </div>
 

@@ -3,7 +3,7 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
   
-  // If the user has valid login credentials, send them to the members page.
+  // If the user has valid login credentials log them in 
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
@@ -13,9 +13,7 @@ module.exports = function(app) {
     });
   });
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // send back an error
+  // Route for signing up a user
   app.post("/api/signup", function(req, res) {
     db.User.create({
       email: req.body.email,

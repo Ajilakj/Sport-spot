@@ -1,27 +1,33 @@
+* {
+    margin: auto;
+}
+
 header {
-    background-color: rgba(0, 0, 0, 0.6);
-    height: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 80px;
 }
 
 h1 {
     color: white;
+    font-size: 35px;
+    padding: 15px;
 }
 
 nav {
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-#nav-btn {
+#nav-link {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     color: white;
     font-size: 17px;
     font-weight: 300;
-    text-align: left;
-    padding: 15px;
+    padding: 8px;
+    text-align: center;
 
 }
 
-#nav-btn:hover {
+#nav-link:hover {
     color: #87BBA2
 }
