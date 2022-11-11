@@ -67,7 +67,7 @@ router.get('/post/:id', async (req, res) => {
 
 
 
-// Login route
+// GET Login route
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
       res.redirect('/');
@@ -76,9 +76,8 @@ router.get('/login', (req, res) => {
     res.render('login');
   });
 
-//////////////////////////////////////////////////////////
-      // Added from user-routes //
-  // Login
+
+  // POST Login
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -120,7 +119,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-//////////////////////////////////////////////////////////
 
 
 
