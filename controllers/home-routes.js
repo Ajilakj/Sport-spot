@@ -16,23 +16,25 @@ router.get('/', async (req, res) => {
   }
 });
 
-//GET all sports for homepage
-// router.get('/', async (req, res) => {
-//   try {
-//     const dbSportData = await Sport.findAll({
-//       include: [
-//           {
-//           model: Post,
-//           attributes: [
-//             'title', 
-//             'content'
-//           ]
-//           },
-//         ],
-//     })
-   
-//     const sport = dbSportData.map((sport) =>
-//       sport.get({ plain: true })
+// GET one sport
+router.get('/sport/:id', async (req, res) => {
+  try {
+    const dbSportData = await Sport.findByPk(req.params.id, {
+      include: [
+        {
+          model: Post,
+          attributes: [
+            'id',
+            'title',
+          ],
+        },
+      ],
+    })
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 //     );
 //     res.render('sport-posts', {
