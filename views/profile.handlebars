@@ -1,0 +1,24 @@
+{{#if loggedIn}}
+<section class ="profile">
+    <div id="profile-header">
+        <h4 id="profile-username">{{user.username}}'s Profile</h4>
+        {{!-- if we add a way to upload photo when creating user, display here --}}
+    </div>
+    <div id="profile-details">
+        <h4>About Me</h4>
+        <h5 id="profile-name">{{user.firstName}} {{user.lastName}}</h5>
+        <p id="profile-bio">{{user.bio}}</p>
+    </div>
+    <div id="profile-contact">
+        <h4>Contact Info</h4>
+        <p id="profile-email">Email: {{user.email}}</p>
+        <p id="profile-phone">Phone: {{user.phone_number}}</p>
+    </div>
+
+<!-- Otherwise, provide a link to login -->
+{{else}}
+<a href="/login">Log in to see this page</a>
+{{/if}}
+</section>
+
+{{!-- link to script file if needed --}}

@@ -82,4 +82,17 @@ router.post('/logout', (req, res) => {
   }
 });
 
+
+// view profile
+// router.get('/profile', (req, res) => {
+//   try {
+
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// })
+
+
+
 module.exports = router;
