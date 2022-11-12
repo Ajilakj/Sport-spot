@@ -9,10 +9,12 @@ commentButton.addEventListener("click", async()=> {
     if (commentFormContent) {
         const response = await fetch('/api/sport/post', {
             method: 'POST',
-            body: JSON.stringify({ content }),
+            body: JSON.stringify({ user_id, date_created, content }),
             headers: { 'Content-Type': 'application/json' },
           });
         
+        commentUser.innerText = user_id;
+        commentTime.innerText = date_created;
         commentContent.innerText = content;
     }
 }) 
