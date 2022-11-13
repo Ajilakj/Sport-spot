@@ -16,39 +16,54 @@ router.get('/', async (req, res) => {
 });
 
 // GET one sport with all posts for that sport
+// router.get('/sport/:id', async (req, res) => {
+//   try {
+//     // sport
+//     const sportData = await Sport.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: Post,
+//           attributes: [
+//             'id',
+//             'post_title',
+//           ],
+//         },
+//       ],
+//     });
+//     const sport = sportData.get({ plain: true });
+//     // posts under that sport
+//     const postData = await Post.findAll({
+//       where: {
+//         sports_id: req.params.id
+//       }
+//     });
+//     console.log(postData)
+//     const posts = postData.map((post) =>
+//       post.get({ plain: true })
+//     );
+//     // render both
+//     res.render('sport-posts', { sport, posts, loggedIn: req.session.loggedIn });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
+// GET one sport with all posts for that sport
 router.get('/sport/:id', async (req, res) => {
-  try {
-    // sport
-    const sportData = await Sport.findByPk(req.params.id, {
-      include: [
-        {
-          model: Post,
-          attributes: [
-            'id',
-            'title',
-          ],
-        },
-      ],
+    const dbPostData = await Post.findAll({where:
+          {sports_id:req.params.id}});
+    const dbSportData = await Sport.findAll({where:
+          {id:req.params.id}});
+    const posts = dbPostData.map((post) =>
+          post.get({ plain: true })
+        );
+    const sportsName = dbSportData.map((name) =>
+          name.get({ plain: true })
+        );
+
+        res.render('sport-posts', {posts,sportsName});
     });
-    const sport = sportData.get({ plain: true });
-    // posts under that sport
-    const postData = await Post.findAll({
-      where: {
-        sports_id: req.params.id
-      }
-    });
-    console.log(postData)
-    const posts = postData.map((post) =>
-      post.get({ plain: true })
-    );
-    // render both
-    res.render('sport-posts', { sport, posts, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-    
 
 // GET one blog post
 router.get('/post/:id', async (req, res) => {
