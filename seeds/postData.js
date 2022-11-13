@@ -8,8 +8,8 @@ const postdata = [
     looking_for_students: false,
     looking_for_coach: false,
     date_created: '11/09/2022',
-    user_id: 1,
     sports_id: 1,
+    user_id: 1,
   },
   {
     title: 'Tennis instructor available weekends',
@@ -18,8 +18,8 @@ const postdata = [
     looking_for_students: true,
     looking_for_coach: false,
     date_created: '11/09/2022',
-    user_id: 2,
     sports_id: 2,
+    user_id: 2,
   },
   {
     title: 'GOAT looking for other GOAT tennis players',
@@ -28,8 +28,8 @@ const postdata = [
     looking_for_students: false,
     looking_for_coach: false,
     date_created: '11/11/2022',
-    user_id: 4,
     sports_id: 2,
+    user_id: 4,
   },
   {
     title: 'Volo league champion looking for my next challenge',
@@ -38,8 +38,8 @@ const postdata = [
     looking_for_students: false,
     looking_for_coach: false,
     date_created: '11/11/2022',
-    user_id: 3,
     sports_id: 3,
+    user_id: 3,
   },
   {
     title: 'Looking for volo teams to coach this summer for sand volleyball',
@@ -48,8 +48,8 @@ const postdata = [
     looking_for_students: true,
     looking_for_coach: false,
     date_created: '11/11/2022',
-    user_id: 7,
     sports_id: 4,
+    user_id: 7,
   },
 ];
 
