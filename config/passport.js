@@ -5,7 +5,7 @@ const db = require("../models");
 
 passport.use(new LocalStrategy(async(email, password, done) => {
     // looks for user
-    User.findOne(
+    db.User.findOne(
         { email: email }, function(err, user) {
             if (err) {
                 return done(err);
