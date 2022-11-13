@@ -50,11 +50,11 @@ SportSpot uses a number of technologies:
 ## Credits
 
 Collaborators:
-[ajilakj](https://github.com/Ajilakj)
-[alices9](https://github.com/alices9)
-[ereneedolan](https://github.com/ereneedolan)
-[lcfhines](https://github.com/lcfhines)
-[valeriaalarcon1](https://github.com/valeriaalarcon1)
+- [ajilakj](https://github.com/Ajilakj)
+- [alices9](https://github.com/alices9)
+- [ereneedolan](https://github.com/ereneedolan)
+- [lcfhines](https://github.com/lcfhines)
+- [valeriaalarcon1](https://github.com/valeriaalarcon1)
 
 ## License
 
