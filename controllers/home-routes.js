@@ -65,6 +65,16 @@ router.get('/sport/:id', async (req, res) => {
         res.render('sport-posts', {posts,sportsName});
     });
 
+    // By Ajila to check the create user handlebars
+  router.get('/create-user', async (req, res) => {
+    try {
+    res.render('signup');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+  });
+
+
 // GET one blog post
 router.get('/post/:id', async (req, res) => {
   try {
