@@ -14,38 +14,39 @@
   <header>
     <h1>SportSpot</h1>
   </header>
+  <nav class="navbar">
+        <div class="container">
+          <div class="row">
 
-<main>
-{{{body}}}
-</main>
+            <div class="col-sm">
+              <!-- home/feed icon-->
+              <a href="/"  id="nav-link">Home</a>
+            </div>
+
+            <div class="col-sm">
+              <!-- create post icon-->
+              <a href="/post/create"  id="nav-link">Post</a>
+            </div>
+
+            <div class="col-sm">
+              <!-- profile icon if loggedin, login link if not-->
+              {{#if loggedIn}}
+              <a href="/profile" id="nav-link">Profile</a>
+              {{else}}
+              <a href="/login" id="nav-link">Login</a>
+              {{/if}}
+            </div>
+
+          </div>
+        </div>
+    </nav>
+  <main>
+  {{{body}}}
+  </main>
 
   <footer>
-    <nav class="navbar fixed-bottom navbar-light bg-light">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-sm">
-            <!-- home/feed icon-->
-            <button>Home</button>
-          </div>
-
-          <div class="col-sm">
-            <!-- create post icon-->
-            <button>New Post</button>
-          </div>
-
-          <div class="col-sm">
-            <!-- profile icon if loggedin, login link if not-->
-            {{#if loggedIn}}
-            <button>Profile</button>
-            {{else}}
-            <a href="/login">Login</a>
-            {{/if}}
-          </div>
-
-        </div>
-      </div>
-    </nav>
+    <!-- Add logo here -->
+    <p class="fixed-bottom text-center">GROUP 1</p>  
   </footer>
 </body>
 
