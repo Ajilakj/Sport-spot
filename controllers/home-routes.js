@@ -1,51 +1,51 @@
-const router = require('express').Router();
-const {User, Sport, Post, Comment} = require('../models');
-const authMiddleware = require('../utils/authMiddleware')
+const router = require("express").Router();
+const {User, Sport, Post} = require("../models");
+const authMiddleware = require("../utils/authMiddleware");
 
 // GET all sports cards
-// router.get('/', async (req, res) => {
+// router.get("/", async (req, res) => {
 //   try {
 //   // Search the database for a sport with an id that matches params
 //   const sportData = await Sport.findAll();
 //   const sports = sportData.map((sport) =>
 //       sport.get({ plain: true })
 //     );
-//   res.render('homepage', sports);
+//   res.render("homepage", sports);
 //   } catch (err) {
 //       res.status(500).json(err);
 //   }
 // });
 
 // GET login page
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect('/home');
+    res.redirect("/home");
     return;
   }
   // otherwise, lets user log in
   else {
-    res.render('login');
+    res.render("login");
   }
 });
 
 
 //   try {
-//       res.render('login');
+//       res.render("login");
 //   } catch (err) {
 //       res.status(500).json(err);
 //   }
 // });
 
 // GET all sports cards
-router.get('/home', authMiddleware, async (req, res) => {
+router.get("/home", authMiddleware, async (req, res) => {
   const dbSportData = await Sport.findAll();
   const sport = dbSportData.map((sport) =>
-  sport.get({ plain: true })
-        );
-        res.render('homepage', {
-        sport
-        });
+    sport.get({ plain: true })
+  );
+  res.render("homepage", {
+    sport
   });
+});
 
 
 //     req.session.save(() => {
@@ -58,17 +58,17 @@ router.get('/home', authMiddleware, async (req, res) => {
 // });
 
 
-    // By Ajila to check the create user handlebars
-  router.get('/create-user', async (req, res) => {
-    try {
-    res.render('signup');
-    } catch (err) {
-        res.status(500).json(err);
-    }
-  });
+// By Ajila to check the create user handlebars
+router.get("/create-user", async (req, res) => {
+  try {
+    res.render("signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // CREATE new user
-router.post('/create-user', async (req, res) => {
+router.post("/create-user", async (req, res) => {
   try {
     const dbUserData = await User.create({
       username: req.body.username,
@@ -88,33 +88,33 @@ router.post('/create-user', async (req, res) => {
   }
 });
 //added this code below to associate a user with any blog post they create
-router.get('/post/create', async (req, res) => {
+router.get("/post/create", async (req, res) => {
   const postsData = await Post.findAll({
     include: [User]
-  })
-  const posts = postsData.map(post => post.get({plain:true}))
-  res.render('create-post',{loggedIn: req.session.loggedIn, posts});
-})
+  });
+  const posts = postsData.map(post => post.get({plain:true}));
+  res.render("create-post",{loggedIn: req.session.loggedIn, posts});
+});
 
 
 
 // // GET one blog post
-// router.get('/post/:id', async (req, res) => {
+// router.get("/post/:id", async (req, res) => {
 //   try {
 //     const sportData = await Post.findByPk(req.params.id, {
 //       include: [
 //         {
 //           model: Post,
 //           attributes: [
-//             'id',
-//             'title',
+//             "id",
+//             "title",
 //           ],
-//           model: Comment,  
+//           model: Comment,
 //         }
 //       ]
 //   })
 //     const sport = sportData.get({ plain: true });
-//     res.render('post', { sport, loggedIn: req.session.loggedIn });
+//     res.render("post", { sport, loggedIn: req.session.loggedIn });
 //   } catch (err) {
 //     console.log(err);
 //     res.status(500).json(err);
@@ -124,17 +124,17 @@ router.get('/post/create', async (req, res) => {
 
 // GET Login route
 // redirects user to home if already logged in
-router.get('/login', (req, res) => {
-    if (req.session.loggedIn) {
-      res.redirect('/home');
-      return;
-    }
-    // otherwise, lets user log in
-    else {
-      res.render('login');
-    }
-  });
-// router.post('/login', async (req, res) => {
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/home");
+    return;
+  }
+  // otherwise, lets user log in
+  else {
+    res.render("login");
+  }
+});
+// router.post("/login", async (req, res) => {
 //   try {
 //     const userData = await User.findOne({
 //       where: {
@@ -145,7 +145,7 @@ router.get('/login', (req, res) => {
 //     if (!userData) {
 //       res
 //         .status(400)
-//         .json({ message: 'Incorrect username or password. Please try again!' });
+//         .json({ message: "Incorrect username or password. Please try again!" });
 //       return;
 //     }
 
@@ -154,20 +154,20 @@ router.get('/login', (req, res) => {
 //     if (!validPassword) {
 //       res
 //         .status(400)
-//         .json({ message: 'Incorrect username or password. Please try again!' });
+//         .json({ message: "Incorrect username or password. Please try again!" });
 //       return;
 //     }
 
 //     req.session.save(() => {
 //       req.session.loggedIn = true;
 //       console.log(
-//         ' ~ file: user-routes.js ~ req.session.save ~ req.session.cookie',
+//         " ~ file: user-routes.js ~ req.session.save ~ req.session.cookie",
 //         req.session.cookie
 //       );
 
 //       res
 //         .status(200)
-//         .json({ user: userData, message: 'You are now logged in!' });
+//         .json({ user: userData, message: "You are now logged in!" });
 //     });
 //   } catch (err) {
 //     console.log(err);
@@ -175,27 +175,27 @@ router.get('/login', (req, res) => {
 //   }
 // });
 
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
   // Search the database for a user with an id that matches params
-  const userData = await User.findByPk(id,req.params.id);
-  const user = userData.map((user) =>
-  user.get({ plain: true })
+    const userData = await User.findByPk(id,req.params.id);
+    const user = userData.map((user) =>
+      user.get({ plain: true })
     );
-  res.render('profile', user);
+    res.render("profile", user);
   } catch (err) {
-      res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
-router.get('/profile/:id', async (req, res) => {
+router.get("/profile/:id", async (req, res) => {
   const userData = await User.findAll({where:
           {id:req.params.id}});
-        const user = userData.map((name) =>
-        name.get({ plain: true }));
-        console.log(user);
-      res.render('profile', {
-        user
-      })
+  const user = userData.map((name) =>
+    name.get({ plain: true }));
+  console.log(user);
+  res.render("profile", {
+    user
+  });
 });
 module.exports = router;
