@@ -3,9 +3,9 @@
 <!-- creating and posting a new blog post -->
 <form class="form post-form">
   <div>
-    <label for="post">Blog Title</label>
+    <label for="post">Blog Title: </label>
     <input id="post-title" type="text" required />
-    <label for="post">Blog Post</label>
+    <label for="post">Blog Post: </label>
     <input id="post-content" type="text"/>
   </div>
 
@@ -15,7 +15,6 @@
 {{!-- {{else}}<a href="/login">Please log in to view this page</a>
 {{/if}} --}}
 </section>
-
 
 <section class="blog-post">
   <div class="blog-post-details">
@@ -29,7 +28,7 @@
   <option value="4">Volleyball</option>
 </select> 
 </div>   
-<label for="checkbox">Please Check All Relevant boxes:</label>
+<label for="checkbox">Please Check All Relevant Boxes:</label>
 <div>
 <input type="checkbox" id="playerscheckbox" name="playerscheckbox">
 <label for="playerscheckbox"> Looking for Players</label><br>
@@ -38,6 +37,8 @@
 <input type="checkbox" id="studentscheckbox" name="studentscheckbox">
 <label for="studentscheckbox"> Looking for Students</label><br>
 </div>
+<button id="add-blog-post-btn">Create New Blog Post</button>
+</section>
 
 {{!-- {{#each posts as |post|}} --}}
     {{!-- <h3>{{post.title}}</h3> --}}
@@ -57,7 +58,7 @@
 <h5>{{post.date_created}}</h5>
 {{/each}} --}}
 
-<button id="add-blog-post-btn">Create New Blog Post</button>
+{{!-- <button id="add-blog-post-btn">Create New Blog Post</button> --}}
 
 
 <script src="./js/createblogpost.js"></script>

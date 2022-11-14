@@ -4,7 +4,7 @@ const createBlogPostFormHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector('#post-title').value
     const content = document.querySelector('#post-content').value
-    console.log(title)
+    // console.log(title)
     if (title) {
       const sports_id = document.getElementById('selectsport').value
       const looking_for_players = document.getElementById('playerscheckbox').checked
@@ -29,5 +29,5 @@ const createBlogPostFormHandler = async (event) => {
     event.preventDefault();}
   
   document
-    .querySelector('.post-form')
+    .querySelector('#add-blog-post-btn')
     .addEventListener('submit', createBlogPostFormHandler);
