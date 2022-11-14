@@ -5,7 +5,7 @@ const profileEmail = document.querySelector('profile-email');
 const profilePhone = document.querySelector('profile-phone');
 
 const response = await fetch (`/users/profile`, {
-    moethod: 'POST',
+    moethod: 'GET',
     body: JSON.stringify({
         username,
         firstName,

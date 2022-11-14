@@ -8,7 +8,6 @@ const createLast = document.querySelector('#lastName-signup');
 const createPhone = document.querySelector('#phone-signup');
 const signupFormHandler = async (event) => {
   event.preventDefault();
-alert("inside function");
   const username = createUser.value.trim();
   const password = createPassword.value.trim();
   const confirmPassword = createConfirm.value.trim();
@@ -19,12 +18,11 @@ alert("inside function");
 
   if(password===confirmPassword){
     if (username && email && password && phone_number) {
-      const response = await fetch('/create-user', {
+      const response = await fetch('/api/create-user', {
         method: 'POST',
         body: JSON.stringify({ username, password, email, firstName, lastName, phone_number }),
         headers: { 'Content-Type': 'application/json' },
       });
-  console.log(response);
       if (response) {
         document.location.replace('/');
       } else {
