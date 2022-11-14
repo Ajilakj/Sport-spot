@@ -32,7 +32,6 @@ router.post('/', async (req, res) => {
 });
 // update user profile
 router.put('/', async (req, res) => {
-     console.log("inside put")
      try {
           const dbUserData = await User.update({
           username: req.body.username,
@@ -43,7 +42,7 @@ router.put('/', async (req, res) => {
           phone_number: req.body.phone_number,
           bio: req.body.bio,},
           {
-                where: { id: 9 } 
+                where: { id: req.params.id } 
           }
           )
      req.session.save(() => {
