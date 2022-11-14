@@ -1,10 +1,7 @@
 const router = require('express').Router();
 const userRoutes = require('./user-routes');
-<<<<<<< HEAD
 const blogRoutes = require('./blogpost-routes');
 
-=======
->>>>>>> main
 const createUserRoutes=require('./create-user');
 const sportPostRoutes=require('./sport-post');
 const postDetailsRoutes =require('./post-details');
