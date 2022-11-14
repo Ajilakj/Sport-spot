@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Sport, Post } = require('../../models');
+const {Post } = require('../../models');
 const authMiddleware = require('../../utils/authMiddleware')
 
 
