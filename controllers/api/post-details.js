@@ -19,14 +19,12 @@ router.get('/:id', async (req, res) => {
         where:
             {post_id: req.params.id}
         },
-        // { 
-        // include: {
-        //     model: User,
-        //     attributes: [
-        //         'username',
-        //     ]
-        // }
-      );
+        {
+        include: User,
+        attributes: [
+          'username'
+        ],
+      });
       const post = dbPostData.get({ plain: true});
 
       const comments = dbCommentData.map((comment) =>
