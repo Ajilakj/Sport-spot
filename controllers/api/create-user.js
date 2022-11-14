@@ -29,9 +29,9 @@ router.post('/', async (req, res) => {
      res.status(500).json(err);
      }
 });
-router.get('/:id', async (req, res) => {
+router.get('/:name', async (req, res) => {
      const userData = await User.findAll({where:
-             {id:req.params.id}});
+             {name:req.params.username}});
            const user = userData.map((name) =>
            name.get({ plain: true }));
            console.log(user);
