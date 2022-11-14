@@ -3,8 +3,9 @@
 const createBlogPostFormHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector('#post-title').value
+    // add in 3 rows of checkboxes for 3 boolean values
+    //const t = document.querySelector('#post-content').value
     const content = document.querySelector('#post-content').value
-    const t = document.querySelector('#post-content').value
     console.log(title)
     if (title) {
       const response = await fetch('/api/blogs/create', {
@@ -17,7 +18,7 @@ const createBlogPostFormHandler = async (event) => {
       if (response.ok){
         location.reload()  
       } else {
-        alert('error has occured in generating post')
+        alert('An error has occured in generating your post')
       }
     }
   };
