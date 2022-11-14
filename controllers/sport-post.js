@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const { Sport, Post } = require('../../models');
-const authMiddleware = require('../../utils/authMiddleware')
+const { Sport, Post } = require('../models');
+const authMiddleware = require('../utils/authMiddleware')
 
 // GET one sport with all posts for that sport
 router.get('/:id', authMiddleware, async (req, res) => {
