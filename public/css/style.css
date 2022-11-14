@@ -1,5 +1,6 @@
 * {
     margin: auto;
+    box-sizing: border-box;
 }
 
 /* App Header and Nav Bar */
@@ -118,8 +119,15 @@ nav {
 
 
 /* Home Page - Sports Cards */
+.sports-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .sports {
     margin: 30px;
+    width: 50%
 }
 
 
