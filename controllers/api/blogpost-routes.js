@@ -1,8 +1,10 @@
 const router = require('express').Router();
-const {Post } = require('../../models');
+const { Post } = require('../../models');
+const authMiddleware = require('../../utils/authMiddleware')
+
 
 //POST for blog post to create a new post
-router.post('/create', async (req, res) => {
+router.post('/create', authMiddleware, async (req, res) => {
     try {
       const postData = await Post.create({
         ...req.body, 
@@ -22,7 +24,7 @@ router.post('/create', async (req, res) => {
   });
   
   //PUT route for user to edit their own blog posts
-  router.put('/:id', (req, res) => {
+  router.put('/:id', authMiddleware, (req, res) => {
     Post.update(
       {
         ...req.body, 
