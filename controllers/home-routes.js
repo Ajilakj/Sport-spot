@@ -36,6 +36,71 @@ router.get('/home', async (req, res) => {
   });
 
 
+//     req.session.save(() => {
+//       res.status(200).json(dbUserData);
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
+// GET one sport with all posts for that sport
+router.get('/sport/:id', async (req, res) => {
+    const dbPostData = await Post.findAll({where:
+          {sports_id:req.params.id}});
+    const dbSportData = await Sport.findAll({where:
+          {id:req.params.id}});
+    const posts = dbPostData.map((post) =>
+          post.get({ plain: true })
+        );
+    const sportsName = dbSportData.map((name) =>
+          name.get({ plain: true })
+        );
+
+        res.render('sport-posts', {posts,sportsName});
+    });
+
+    // By Ajila to check the create user handlebars
+  router.get('/create-user', async (req, res) => {
+    try {
+    res.render('signup');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+  });
+
+// CREATE new user
+router.post('/create-user', async (req, res) => {
+  try {
+    const dbUserData = await User.create({
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      phone: req.body.phone,
+    });
+
+    req.session.save(() => {
+      res.status(200).json(dbUserData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+//added this code below to associate a user with any blog post they create
+router.get('/post/create', async (req, res) => {
+  const postsData = await Post.findAll({
+    include: [User]
+  })
+  const posts = postsData.map(post => post.get({plain:true}))
+  res.render('create-post',{loggIn: req.session.loggedIn, posts});
+})
+
+
+
 // GET one blog post
 router.get('/post/:id', async (req, res) => {
   try {
@@ -59,52 +124,6 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
-//POST for blog post to create a new post
-router.post('/post/create', async (req, res) => {
-  res.render('create-blog-post');
-  try {
-    const postData = await Post.create({
-      title: req.body.title,
-      content: req.body.content,
-      looking_for_players: req.body.looking_for_players,
-      looking_for_coach: req.body.looking_for_coach,
-      looking_for_students: req.body.looking_for_students,
-      date_posted: Date.toLocalDateString(),
-  });
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      res.status(200).json(postData);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-//PUT route for user to edit their own blog posts
-router.put('/post/:id', (req, res) => {
-  Post.update(
-    {
-      // listed fields are fields that can be edited
-      title: req.body.title,
-      content: req.body.content,
-      looking_for_players: req.body.looking_for_players,
-      looking_for_coach: req.body.looking_for_coach,
-      looking_for_students: req.body.looking_for_students,
-    },
-    {
-      // Gets the blog post based on id
-      where: {
-        id: req.params.id,
-      },
-    }
-  )
-    .then((updated) => {
-      // Sends the updated post as json
-      res.json(updatedPost);
-    })
-    .catch((err) => res.json(err));
-});
 
 // GET Login route
 router.get('/login', (req, res) => {
