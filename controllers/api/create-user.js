@@ -29,5 +29,14 @@ router.post('/', async (req, res) => {
      res.status(500).json(err);
      }
 });
-
+router.get('/:id', async (req, res) => {
+     const userData = await User.findAll({where:
+             {id:req.params.id}});
+           const user = userData.map((name) =>
+           name.get({ plain: true }));
+           console.log(user);
+         res.render('profile', {
+           user
+         })
+   });
 module.exports=router;
