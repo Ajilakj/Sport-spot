@@ -20,7 +20,7 @@ const createBlogPostFormHandler = async (event) => {
       if (response.ok){
         location.reload()  
       } else {
-        alert('An error has occured in generating your post')
+        alert('An error has occurred in generating your post')
       }
     }
   };
