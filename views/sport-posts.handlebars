@@ -1,0 +1,10 @@
+{{!-- Will display Sports Name based on the id --}}
+  {{#each sportsName}}
+    <h2>{{name}}</h2>
+  {{/each}}
+{{!-- Will display posts related to that sports --}}
+<div class="posts">
+    {{#each posts as |post|}}
+    {{> sport-post-details}}
+    {{/each}}
+</div>

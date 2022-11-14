@@ -19,6 +19,6 @@ const sportdata = [
   },
 ];
 
-const seedSport = () => Sport.bulkCreate(sportdata);
+const seedSport = async () => await Sport.bulkCreate(sportdata);
 
 module.exports = seedSport;

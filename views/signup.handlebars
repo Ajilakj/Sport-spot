@@ -1,14 +1,10 @@
 <div class="row justify-space-between-md">
   <div class="login-card">
-    <h2 class="page-title">Signup for an account:</h2>
+    <h2 class="page-title">Sign up for an account:</h2>
     <form class="form signup-form">
       <div class="form-group">
         <label for="username-signup">Username:</label>
         <input class="form-input" type="text" id="username-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">Email:</label>
-        <input class="form-input" type="text" id="email-signup" />
       </div>
       <div class="form-group">
         <label for="password-signup">Password:</label>
@@ -16,17 +12,33 @@
       </div>
       <div class="form-group">
         <label for="password-confirm">Confirm password:</label>
-        <input class="form-input" type="text" id="password-confirm" />
+        <input class="form-input" type="password" id="password-confirm" />
+      </div>
+      <div class="form-group">
+        <label for="email-signup">Email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="firstName-signup">First name:</label>
+        <input class="form-input" type="text" id="firstName-signup" />
+      </div>
+      <div class="form-group">
+        <label for="lastName-signup">Last name:</label>
+        <input class="form-input" type="text" id="lastName-signup" />
       </div>
       <div class="form-group">
         <label for="phone-signup">Phone number:</label>
         <input class="form-input" type="text" id="phone-signup" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
+        <label for="bio-signup">Bio:</label>
+        <input class="form-input" type="text" id="bio-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary signup" type="submit">signup</button>
       </div>
     </form>
   </div>
 </div>
 
-<script src="./js/signup.js"></script>
+<script src="../js/createUser.js"></script>

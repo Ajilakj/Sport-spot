@@ -1,4 +1,7 @@
-
-{{#each sports as |sport|}}
-{{> sport-details}}
-{{/each}}
+<div class="sports-container">
+    <div class="sports">
+        {{#each sport}}
+        {{> sport-cards}}
+        {{/each}}
+    </div>
+</div>

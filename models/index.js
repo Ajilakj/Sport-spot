@@ -16,9 +16,8 @@ Post.hasOne(Sport, {
     foreignKey: "sports_id"
 });
 
-Sport.belongsToMany(Post, {
+Sport.belongsTo(Post, {
     foreignKey: "sports_id",
-    through:{model:Post}
 });
 
 Post.hasMany(Comment, {
@@ -37,4 +36,4 @@ Comment.belongsTo(User, {
     foreignKey: "user_id"
 })
 
-module.exports = { User, Sport, Post, Comment };
+module.exports = { User, Sport, Post, Comment};
