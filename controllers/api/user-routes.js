@@ -82,4 +82,23 @@ router.post('/logout', (req, res) => {
   }
 });
 
+
+// view profile
+// will req.body.username remain in order to display that user's profile?
+router.get('/profile', async (req, res) => {
+  try {
+     const userData = await User.findOne({
+      where: {
+        username: req.body.username,
+      }
+    })
+    const user = userData.get({ plain: true });
+    res.render('user', user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+
 module.exports = router;
