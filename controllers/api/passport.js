@@ -1,20 +1,28 @@
-// var db = require("../models");
-// var passport = require("../config/passport");
+const router = require('express').Router();
+var db = require("../../models");
+var passport = require("../../config/passport");
 
-module.exports = function(app) {
   
   // If the user has valid login credentials log them in 
   // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  router.post("/login", passport.authenticate("local"), function(req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      username: req.user.username,
-      id: req.user.id
-    });
+    console.log(`We're logginin with passport`)
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res.json({
+        username: req.user.username,
+        id: req.user.id
+      });
+    }
+    )
   });
 
-  // Route for signing up a user
-  app.post("/api/signup", function(req, res) {
+  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
+  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
+  // send back an error
+  router.post("/signup", function(req, res) {
     db.User.create({
       username: req.body.username,
       email: req.body.email,
@@ -29,12 +37,12 @@ module.exports = function(app) {
   });
 
   // Route for logging user out
-  app.get("/logout", function(req, res) {
+  router.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
   });
 
-  app.get("/api/user_data", function(req, res) {
+  router.get("/user_data", function(req, res) {
     if (!req.user) {
       // Since the user hasn't logged in so nothing will be returned with nothing 
       res.json({});
@@ -45,4 +53,6 @@ module.exports = function(app) {
       });
     }
   });
-};
+
+
+module.exports = router;
