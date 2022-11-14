@@ -8,10 +8,15 @@ var passport = require("../../config/passport");
   router.post("/login", passport.authenticate("local"), function(req, res) {
     // Sending back a password, even a hashed password, isn't a good idea
     console.log(`We're logginin with passport`)
-    res.json({
-      username: req.user.username,
-      id: req.user.id
-    });
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res.json({
+        username: req.user.username,
+        id: req.user.id
+      });
+    }
+    )
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

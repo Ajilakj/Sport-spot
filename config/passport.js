@@ -27,9 +27,9 @@ passport.use(new LocalStrategy(
         }
     }
     )
-
     return done(null, user)
-
+})
+)
 //     db.User.findOne(
 //         function(err, user) {
 //             if (err) {
@@ -50,8 +50,7 @@ passport.use(new LocalStrategy(
 //             return done(null, user)
 //         })
 //     })
-})
-)
+
 
 passport.serializeUser(function(user, cb) {
     cb(null, user);
