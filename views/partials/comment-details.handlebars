@@ -2,7 +2,7 @@
 <section class="comment-card">
   <div class="comment-card-body">
     <h5 id="comment-user">{{comment.user.username}}</h5>
-    <h5 id="comment-time">{{comment.date_created}}</h5>
+    <h5 id="comment-time">{{format_date comment.date_created}}</h5>
     <p id="comment-content">{{comment.content}}</p>
   </div>
 {{!-- {{else}}<a href="/login">Log in to see this page</a>
