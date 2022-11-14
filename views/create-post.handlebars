@@ -34,19 +34,22 @@
 <section class="blog-post">
   <div class="blog-post-details">
 <label for="cars">Choose a Sport:</label>
-
+<div></div>
 <select name="sport" id="selectsport" required>
   <option value="1">Basketball</option>
   <option value="2">Tennis</option>
   <option value="3">Soccer</option>
   <option value="4">Volleyball</option>
-</select>    
+</select> 
+</div>   
+<div>
 <input type="checkbox" id="playerscheckbox" name="playerscheckbox">
 <label for="playerscheckbox"> Looking for Players</label><br>
 <input type="checkbox" id="coachcheckbox" name="coachcheckbox">
 <label for="coachcheckbox"> Looking for Coach</label><br>
 <input type="checkbox" id="studentscheckbox" name="studentscheckbox">
 <label for="studentscheckbox"> Looking for Students</label><br>
+</div>
 
     <h3>{{post.title}}</h3>
     {{!-- can wrap in a tag to display username of person who wrote post and not id to be able to click into their profile? --}}
