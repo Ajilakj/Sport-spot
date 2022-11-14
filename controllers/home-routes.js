@@ -94,6 +94,7 @@ router.post('/create-user', async (req, res) => {
     res.status(500).json(err);
   }
 });
+//added this code below to associate a user with any blog post they create
 router.get('/post/create', async (req, res) => {
   const postsData = await Post.findAll({
     include: [User]
