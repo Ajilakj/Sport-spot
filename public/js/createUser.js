@@ -20,13 +20,14 @@ const signupFormHandler = async (event) => {
 
   if(password===confirmPassword){
     if (username && email && password && phone_number) {
-      const response = await fetch('/api/create-user', {
+      //alert(phone_number);
+      const response = await fetch('/api/profile', {
         method: 'POST',
-        body: JSON.stringify({ username, password, email, firstName, lastName, phone_number }),
+        body: JSON.stringify({ username, password, firstName, lastName, email, bio, phone_number}),
         headers: { 'Content-Type': 'application/json' },
       });
       if (response) {
-        document.location.replace('/profile');
+        document.location.replace('/api/profile/'+username);
       } else {
         alert('Failed to sign up.');
       }

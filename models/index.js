@@ -16,9 +16,8 @@ Post.hasOne(Sport, {
     foreignKey: "sports_id"
 });
 
-Sport.belongsToMany(Post, {
+Sport.belongsTo(Post, {
     foreignKey: "sports_id",
-    through:{model:Post}
 });
 
 Post.hasMany(Comment, {
