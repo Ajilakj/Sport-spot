@@ -94,6 +94,16 @@ router.post('/create-user', async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get('/post/create', async (req, res) => {
+  const postsData = await Post.findAll({
+    include: [User]
+  })
+  const posts = postsData.map(post => post.get({plain:true}))
+  res.render('create-post',{loggIn: req.session.loggedIn, posts});
+})
+
+
+
 // GET one blog post
 router.get('/post/:id', async (req, res) => {
   try {
@@ -119,7 +129,6 @@ router.get('/post/:id', async (req, res) => {
 
 //POST for blog post to create a new post
 router.post('/post/create', async (req, res) => {
-  res.render('create-blog-post');
   try {
     const postData = await Post.create({
       ...req.body, 
@@ -156,6 +165,8 @@ router.put('/post/:id', (req, res) => {
       // looking_for_players: req.body.looking_for_players,
       // looking_for_coach: req.body.looking_for_coach,
       // looking_for_students: req.body.looking_for_students,
+      //updated posts populate near top so new information isn't buried, in future any abuse of this system of dates could be punished on the site
+      date_posted: Date.toLocalDateString(),
     },
     {
       // Gets the blog post based on id

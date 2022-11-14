@@ -1,5 +1,5 @@
 {{#if loggedIn}}
-<section class="blog-post">
+{{!-- <section class="blog-post">
   <div class="blog-post-details">
     <h3>{{post.title}}</h3>
     <h5>{{post.user_id}}</h5>
@@ -7,7 +7,7 @@
     <p>{{post.content}}</p>
     <button id="add-blog-post-btn">Add New Blog Post</button>
   </div>
-</section>
+</section> --}}
 
 <!-- creating and posting a new blog post -->
 <form class="form post-form" action="/sport/post/" method="post">
@@ -28,7 +28,7 @@
 </section>
 
 {{#each posts as |post|}}
-{{> post-details}}
+{{> post-details post}}
 {{/each}}
 
 
