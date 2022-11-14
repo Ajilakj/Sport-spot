@@ -127,11 +127,13 @@ router.get('/post/:id', async (req, res) => {
 
 
 // GET Login route
+// redirects user to home if already logged in
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
-      res.redirect('/');
+      res.redirect('/home');
       return;
     }
+    // otherwise, lets user log in
     res.render('login');
   });
 // router.post('/login', async (req, res) => {
