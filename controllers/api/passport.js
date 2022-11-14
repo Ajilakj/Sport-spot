@@ -10,6 +10,7 @@ var passport = require("../../config/passport");
     console.log(`We're logginin with passport`)
 
     req.session.save(() => {
+      req.session.userId=req.user.id; 
       req.session.loggedIn = true;
       res.json({
         username: req.user.username,
