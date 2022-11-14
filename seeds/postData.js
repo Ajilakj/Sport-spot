@@ -53,6 +53,6 @@ const postdata = [
   },
 ];
 
-const seedPost = () => Post.bulkCreate(postdata);
+const seedPost = async () => await Post.bulkCreate(postdata);
 
 module.exports = seedPost;
