@@ -29,11 +29,13 @@
 <!-- Otherwise, provide a link to login -->
 {{!-- {{else}}<a href="/login">Log in to see this page</a>
 {{/if}} --}}
-</section>
+
+<section class="existing-comments">
 
 {{#each comments as |comment|}}
 {{> comment-details}}
 {{/each}}
 
+</section>
 
 <script src="../public/js/comment.js"></script>
