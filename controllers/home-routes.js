@@ -2,98 +2,48 @@ const router = require('express').Router();
 const {User, Sport, Post } = require('../models');
 
 // GET all sports cards
+// router.get('/', async (req, res) => {
+//   try {
+//   // Search the database for a sport with an id that matches params
+//   const sportData = await Sport.findAll();
+//   const sports = sportData.map((sport) =>
+//       sport.get({ plain: true })
+//     );
+//   res.render('homepage', sports);
+//   } catch (err) {
+//       res.status(500).json(err);
+//   }
+// });
+
+// GET login page
 router.get('/', async (req, res) => {
   try {
-  // Search the database for a sport with an id that matches params
-  const sportData = await Sport.findAll();
-  const sports = sportData.map((sport) =>
-      sport.get({ plain: true })
-    );
-  res.render('homepage', sports);
+      res.render('login');
   } catch (err) {
       res.status(500).json(err);
   }
 });
 
-// GET one sport with all posts for that sport
-// router.get('/sport/:id', async (req, res) => {
-//   try {
-//     // sport
-//     const sportData = await Sport.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: Post,
-//           attributes: [
-//             'id',
-//             'post_title',
-//           ],
-//         },
-//       ],
+// GET all sports cards
+router.get('/home', async (req, res) => {
+  const dbSportData = await Sport.findAll();
+  const sport = dbSportData.map((sport) =>
+  sport.get({ plain: true })
+        );
+        res.render('homepage', {
+        sport
+        });
+  });
+
+
+//     req.session.save(() => {
+//       res.status(200).json(dbUserData);
 //     });
-//     const sport = sportData.get({ plain: true });
-//     // posts under that sport
-//     const postData = await Post.findAll({
-//       where: {
-//         sports_id: req.params.id
-//       }
-//     });
-//     console.log(postData)
-//     const posts = postData.map((post) =>
-//       post.get({ plain: true })
-//     );
-//     // render both
-//     res.render('sport-posts', { sport, posts, loggedIn: req.session.loggedIn });
 //   } catch (err) {
 //     console.log(err);
 //     res.status(500).json(err);
 //   }
 // });
-
-// GET one sport with all posts for that sport
-router.get('/sport/:id', async (req, res) => {
-    const dbPostData = await Post.findAll({where:
-          {sports_id:req.params.id}});
-    const dbSportData = await Sport.findAll({where:
-          {id:req.params.id}});
-    const posts = dbPostData.map((post) =>
-          post.get({ plain: true })
-        );
-    const sportsName = dbSportData.map((name) =>
-          name.get({ plain: true })
-        );
-
-        res.render('sport-posts', {posts,sportsName});
-    });
-
-    // By Ajila to check the create user handlebars
-  router.get('/create-user', async (req, res) => {
-    try {
-    res.render('signup');
-    } catch (err) {
-        res.status(500).json(err);
-    }
-  });
-
-// CREATE new user
-router.post('/create-user', async (req, res) => {
-  try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      password: req.body.password,
-      email: req.body.email,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      phone: req.body.phone,
-    });
-
-    req.session.save(() => {
-      res.status(200).json(dbUserData);
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
 router.get('/post/create', async (req, res) => {
   const postsData = await Post.findAll({
     include: [User]
@@ -177,7 +127,18 @@ router.post('/login', async (req, res) => {
   }
 });
 
-
+router.get('/:id', async (req, res) => {
+  try {
+  // Search the database for a user with an id that matches params
+  const userData = await User.findByPk(id,req.params.id);
+  const user = userData.map((user) =>
+  user.get({ plain: true })
+    );
+  res.render('profile', user);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
 
 
 module.exports = router;
