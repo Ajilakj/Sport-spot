@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Sport, Post } = require('../../models');
-
+const authMiddleware = require('../../utils/authMiddleware')
 
 // GET one sport with all posts for that sport
-router.get('/:id', async (req, res) => {
+router.get('/:id', authMiddleware, async (req, res) => {
      const dbPostData = await Post.findAll({where:
            {sports_id:req.params.id}});
      const dbSportData = await Sport.findAll({where:
