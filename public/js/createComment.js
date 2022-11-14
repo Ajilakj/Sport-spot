@@ -1,4 +1,3 @@
-
 const commentButton = document.getElementById("add-comment-btn");
 
 const createCommentFormHandler = async (event) => {
@@ -24,4 +23,4 @@ const createComment = async (event) => {
     event.preventDefault();
 }
 
-document.querySelector('#commentButton').addEventListener('submit', createCommentFormHandler);
+commentButton.addEventListener('click', createCommentFormHandler);
