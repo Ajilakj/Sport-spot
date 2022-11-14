@@ -44,6 +44,53 @@ router.get('/home', async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
+
+// GET one sport with all posts for that sport
+router.get('/sport/:id', async (req, res) => {
+    const dbPostData = await Post.findAll({where:
+          {sports_id:req.params.id}});
+    const dbSportData = await Sport.findAll({where:
+          {id:req.params.id}});
+    const posts = dbPostData.map((post) =>
+          post.get({ plain: true })
+        );
+    const sportsName = dbSportData.map((name) =>
+          name.get({ plain: true })
+        );
+
+        res.render('sport-posts', {posts,sportsName});
+    });
+
+    // By Ajila to check the create user handlebars
+  router.get('/create-user', async (req, res) => {
+    try {
+    res.render('signup');
+    } catch (err) {
+        res.status(500).json(err);
+    }
+  });
+
+// CREATE new user
+router.post('/create-user', async (req, res) => {
+  try {
+    const dbUserData = await User.create({
+      username: req.body.username,
+      password: req.body.password,
+      email: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      phone: req.body.phone,
+    });
+
+    req.session.save(() => {
+      res.status(200).json(dbUserData);
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+//added this code below to associate a user with any blog post they create
 router.get('/post/create', async (req, res) => {
   const postsData = await Post.findAll({
     include: [User]

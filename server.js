@@ -45,6 +45,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+require('./controllers/api/passport.js')(app)
+
 app.use(routes);
 // app.get('/', async (req, res) => {
 //     res.render('sport-posts');
