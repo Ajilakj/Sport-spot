@@ -34,7 +34,7 @@ User.init(
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true,
+        isEmail: true
       },
     },
     bio: {
