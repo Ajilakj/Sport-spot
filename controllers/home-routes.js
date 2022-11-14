@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {User, Sport, Post } = require('../models');
+const {User, Sport, Post, Comment} = require('../models');
 const authMiddleware = require('../utils/authMiddleware')
 
 // GET all sports cards
@@ -98,28 +98,28 @@ router.get('/post/create', async (req, res) => {
 
 
 
-// GET one blog post
-router.get('/post/:id', async (req, res) => {
-  try {
-    const sportData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: Post,
-          attributes: [
-            'id',
-            'title',
-          ],
-          model: Comment,  
-        }
-      ]
-  })
-    const sport = sportData.get({ plain: true });
-    res.render('post', { sport, loggedIn: req.session.loggedIn });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+// // GET one blog post
+// router.get('/post/:id', async (req, res) => {
+//   try {
+//     const sportData = await Post.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: Post,
+//           attributes: [
+//             'id',
+//             'title',
+//           ],
+//           model: Comment,  
+//         }
+//       ]
+//   })
+//     const sport = sportData.get({ plain: true });
+//     res.render('post', { sport, loggedIn: req.session.loggedIn });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 
 // GET Login route
