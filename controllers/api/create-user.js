@@ -18,7 +18,8 @@ router.post('/', async (req, res) => {
           email: req.body.email,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          phone: req.body.phone,
+          phone_number: req.body.phone_number,
+          bio: req.body.bio,
      });
 
      req.session.save(() => {
@@ -29,9 +30,9 @@ router.post('/', async (req, res) => {
      res.status(500).json(err);
      }
 });
-router.get('/:name', async (req, res) => {
+router.get('/:username', async (req, res) => {
      const userData = await User.findAll({where:
-             {name:req.params.username}});
+             {username:req.params.username}});
            const user = userData.map((name) =>
            name.get({ plain: true }));
            console.log(user);

@@ -1,22 +1,25 @@
-// const posttUser = document.getElementById("post-user");
-// const postDate = document.getElementById("post-date");
-// const postContent = document.getElementById("post-content");
-// const postButton = document.getElementById("add-post-btn");
-
-// matching this to the comment.js????
 
 
 const createBlogPostFormHandler = async (event) => {
     event.preventDefault();
-  
-    const blogpost = document.querySelector('#blogpost-create')
-  
-    if (blogpost) {
-      const response = await fetch('/api/home-routes/', {
+    const title = document.querySelector('#post-title').value
+    // add in 3 rows of checkboxes for 3 boolean values
+    //const t = document.querySelector('#post-content').value
+    const content = document.querySelector('#post-content').value
+    console.log(title)
+    if (title) {
+      const response = await fetch('/api/blogs/create', {
         method: 'POST',
-        body: JSON.stringify({ blogpost }),
+        body: JSON.stringify({ title, content }),
         headers: { 'Content-Type': 'application/json' },
       });
+      const result = await response.json()
+      console.log(result)
+      if (response.ok){
+        location.reload()  
+      } else {
+        alert('An error has occured in generating your post')
+      }
     }
   };
   
@@ -24,5 +27,5 @@ const createBlogPostFormHandler = async (event) => {
     event.preventDefault();}
   
   document
-    .querySelector('.createblogpost-form')
+    .querySelector('.post-form')
     .addEventListener('submit', createBlogPostFormHandler);

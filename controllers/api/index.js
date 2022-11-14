@@ -8,7 +8,7 @@ const postDetailsRoutes =require('./post-details');
 router.use('/users', userRoutes);
 // router.use('/blogs', blogRoutes);
 
-router.use('/create-user', createUserRoutes);
+router.use('/profile', createUserRoutes);
 
 router.use('/sport', sportPostRoutes);
 

@@ -21,11 +21,19 @@ The app allows users to browse posts by sport made by other users and create pos
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+Run ```npm i``` to install the dependencies.  
+
+Copy the contents of the .env.EXAMPLE file into a new .env file in the root of the directory with personal credentials in order to configure the connection.  
+
+Connect to MySQL by running ```mysql -u root -p``` in the db. Enter your password when prompted.  
+ 
+Then execute the schema by running ```source schema.sql```.  
+
+Outside of the db, run ```node seeds/index.js``` to set up existing data followed by ```node server``` to run the server. 
 
 ## Usage
 
-The application, deployed using Heroku, can be found [here](https://the-sport-spot-team-1.herokuapp.com/).
+The application has been deployed using Heroku and can be found [here](https://the-sport-spot-team-1.herokuapp.com/).
 
 To access the website, users will need to sign up and create a profile or login to an existing account. 
 
@@ -50,11 +58,11 @@ SportSpot uses a number of technologies:
 ## Credits
 
 Collaborators:
-[ajilakj](https://github.com/Ajilakj)
-[alices9](https://github.com/alices9)
-[ereneedolan](https://github.com/ereneedolan)
-[lcfhines](https://github.com/lcfhines)
-[valeriaalarcon1](https://github.com/valeriaalarcon1)
+- [ajilakj](https://github.com/Ajilakj)
+- [alices9](https://github.com/alices9)
+- [ereneedolan](https://github.com/ereneedolan)
+- [lcfhines](https://github.com/lcfhines)
+- [valeriaalarcon1](https://github.com/valeriaalarcon1)
 
 ## License
 
