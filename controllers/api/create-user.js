@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { User } = require('../../models');
-var sid=9;
 router.get('/', async (req, res) => {
      try {
      res.render('signup');
@@ -31,8 +30,9 @@ router.post('/', async (req, res) => {
      }
 });
 // update user profile
+
 router.put('/', async (req, res) => {
-     console.log("inside put")
+     console.log(req.session.userId);
      try {
           const dbUserData = await User.update({
           username: req.body.username,
@@ -43,7 +43,8 @@ router.put('/', async (req, res) => {
           phone_number: req.body.phone_number,
           bio: req.body.bio,},
           {
-                where: { id: 9 } 
+              where: { id: req.session.userId} 
+     
           }
           )
      req.session.save(() => {
@@ -58,8 +59,7 @@ router.put('/', async (req, res) => {
 router.get('/edit', async (req, res) => {
      try {
 
-          const userData = await User.findAll({where:
-               {id:sid}});
+          const userData = await User.findAll();
                const user = userData.map((name) =>
                name.get({ plain: true }));
                console.log(user);

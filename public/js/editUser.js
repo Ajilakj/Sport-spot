@@ -1,54 +1,22 @@
-// var sid=9;
-// const btn=document.querySelector('.update');
-
-// const editFormHandler = async (event) => {
-//   event.preventDefault();
-
-
-//   if(password===confirmPassword){
-//     if (username && email && password && phone_number) {
-
-//       const response = await fetch('/api/profile/edit', {
-//         method: 'PUT',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify({ username, password, firstName, lastName, email, bio, phone_number}),
-//         // body: JSON.stringify({ username: 'Fetch PUT Request Example' })
-
-//       });
-//       if (response) {
-//         document.location.replace('/api/profile/'+username);
-//       } else {
-//         alert('Failed to Edit.');
-//       }
-//     }
-//     else{
-//       alert("confirm password doesn't match with the password");
-//     }
-//   }
-  
-// };
-
-
-// btn.addEventListener('click', editFormHandler);
 const btn=document.querySelector('.update');
-const createUser = document.querySelector('#username-signup');
-const createPassword = document.querySelector('#password-signup');
-const createConfirm = document.querySelector('#password-confirm');
-const createEmail = document.querySelector('#email-signup');
-const createFirst = document.querySelector('#firstName-signup');
-const createLast = document.querySelector('#lastName-signup');
-const createPhone = document.querySelector('#phone-signup');
-const createBio = document.querySelector('#bio-signup');
+const editUser = document.querySelector('#username-signup');
+const editPassword = document.querySelector('#password-signup');
+const editConfirm = document.querySelector('#password-confirm');
+const editEmail = document.querySelector('#email-signup');
+const editFirst = document.querySelector('#firstName-signup');
+const editLast = document.querySelector('#lastName-signup');
+const editPhone = document.querySelector('#phone-signup');
+const editBio = document.querySelector('#bio-signup');
 const editFormHandler = async (event) => {
   event.preventDefault();
-  const username = createUser.value.trim();
-  const password = createPassword.value.trim();
-  const confirmPassword = createConfirm.value.trim();
-  const email = createEmail.value.trim();
-  const firstName = createFirst.value.trim();
-  const lastName = createLast.value.trim();
-  const phone_number = createPhone.value.trim();
-  const bio = createBio.value.trim();
+  const username = editUser.value.trim();
+  const password = editPassword.value.trim();
+  const confirmPassword = editConfirm.value.trim();
+  const email = editEmail.value.trim();
+  const firstName = editFirst.value.trim();
+  const lastName = editLast.value.trim();
+  const phone_number = editPhone.value.trim();
+  const bio = editBio.value.trim();
 
   if(password===confirmPassword){
     if (username && email && password && phone_number) {
