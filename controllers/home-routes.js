@@ -45,21 +45,6 @@ router.get('/home', async (req, res) => {
 //   }
 // });
 
-// GET one sport with all posts for that sport
-router.get('/sport/:id', async (req, res) => {
-    const dbPostData = await Post.findAll({where:
-          {sports_id:req.params.id}});
-    const dbSportData = await Sport.findAll({where:
-          {id:req.params.id}});
-    const posts = dbPostData.map((post) =>
-          post.get({ plain: true })
-        );
-    const sportsName = dbSportData.map((name) =>
-          name.get({ plain: true })
-        );
-
-        res.render('sport-posts', {posts,sportsName});
-    });
 
     // By Ajila to check the create user handlebars
   router.get('/create-user', async (req, res) => {
@@ -96,7 +81,7 @@ router.get('/post/create', async (req, res) => {
     include: [User]
   })
   const posts = postsData.map(post => post.get({plain:true}))
-  res.render('create-post',{loggIn: req.session.loggedIn, posts});
+  res.render('create-post',{loggedIn: req.session.loggedIn, posts});
 })
 
 

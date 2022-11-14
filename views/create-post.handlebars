@@ -9,8 +9,6 @@
     <input id="post-content" type="text"/>
   </div>
 
-</form>
-
 <!-- Ask them to login via login link supplied -->
 {{!-- {{else}}<a href="/login">Please log in to view this page</a>
 {{/if}} --}}
@@ -39,7 +37,7 @@
 </div>
 <button id="add-blog-post-btn">Create New Blog Post</button>
 </section>
-
+</form>
 {{!-- {{#each posts as |post|}} --}}
     {{!-- <h3>{{post.title}}</h3> --}}
     {{!-- can wrap in a tag to display username of person who wrote post and not id to be able to click into their profile? --}}
@@ -58,7 +56,5 @@
 <h5>{{post.date_created}}</h5>
 {{/each}} --}}
 
-{{!-- <button id="add-blog-post-btn">Create New Blog Post</button> --}}
 
-
-<script src="./js/createblogpost.js"></script>
+<script src="/js/createblogpost.js"></script>

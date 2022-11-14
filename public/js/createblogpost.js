@@ -1,10 +1,8 @@
-
-
 const createBlogPostFormHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector('#post-title').value
     const content = document.querySelector('#post-content').value
-    // console.log(title)
+    console.log(title)
     if (title) {
       const sports_id = document.getElementById('selectsport').value
       const looking_for_players = document.getElementById('playerscheckbox').checked
@@ -18,7 +16,7 @@ const createBlogPostFormHandler = async (event) => {
       const result = await response.json()
       console.log(result)
       if (response.ok){
-        location.reload()  
+        location.href= `/api/sport/${sports_id}`
       } else {
         alert('An error has occurred in generating your post')
       }
@@ -29,5 +27,5 @@ const createBlogPostFormHandler = async (event) => {
     event.preventDefault();}
   
   document
-    .querySelector('#add-blog-post-btn')
+    .querySelector('.post-form')
     .addEventListener('submit', createBlogPostFormHandler);
