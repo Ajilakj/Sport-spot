@@ -24,7 +24,7 @@ const signupFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
       if (response) {
-        document.location.replace('/');
+        document.location.replace('/profile');
       } else {
         alert('Failed to sign up.');
       }
