@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Post, User, Comment } = require('../../models');
+const authMiddleware = require('../../utils/authMiddleware')
 
-// get post details & related comments
-router.get('/:id', async (req, res) => {
+router.get('/:id', authMiddleware, async (req, res) => {
     try {
       const dbPostData = await Post.findByPk(req.params.id, {
         include: [

@@ -1,5 +1,3 @@
-
-
 const createBlogPostFormHandler = async (event) => {
     event.preventDefault();
     const title = document.querySelector('#post-title').value
@@ -18,7 +16,7 @@ const createBlogPostFormHandler = async (event) => {
       const result = await response.json()
       console.log(result)
       if (response.ok){
-        location.reload()  
+        location.href= `/api/sport/${sports_id}`
       } else {
         alert('An error has occurred in generating your post')
       }
