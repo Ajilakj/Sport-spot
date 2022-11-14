@@ -5,7 +5,7 @@ const commentFormHandler = async (event) => {
     event.preventDefault();
 }
 
-const response = await fetch(`/api/post/${id}`, {
+const response = await fetch(`/api/post/:id`, {
     method: 'POST',
     body: JSON.stringify({ 
         content
@@ -14,7 +14,7 @@ const response = await fetch(`/api/post/${id}`, {
         'Content-Type': 'application/json'
     },
 });
-    document.location.replace(`/api/post/${id}`);
+    document.location.replace(`/api/post/:id}`);
 
 
 btn.addEventListener('click', commentFormHandler);
