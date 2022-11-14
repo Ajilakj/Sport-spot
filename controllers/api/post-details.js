@@ -11,10 +11,6 @@ router.get('/:id', async (req, res) => {
                 attributes: [
                    'username', 
                 ],
-                model: Sport,
-                attributes: [
-                    'name',
-                ]
             }
         ]
       });
