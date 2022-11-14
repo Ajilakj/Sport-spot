@@ -1,12 +1,9 @@
-{{!-- {{#if loggedIn}} --}}
 <section class="post">
   <div class="post-details">
     <h3>{{post.title}}</h3>
     <h5>{{post.user.username}}</h5>
     <p>{{format_date post.date_created}}</p>
     <p>{{post.content}}</p>
-    {{!-- duplicate button --}}
-    {{!-- <button id="add-comment-btn">Add comment</button> --}}
   </div>
 </section>
 
@@ -24,14 +21,6 @@
 </form>
 </section>
 
-
-
-<!-- Otherwise, provide a link to login -->
-
-</section>
-
-
-
 <section class="existing-comments">
   <h5>Comments<h5>
   <div class="comments">
@@ -41,6 +30,4 @@
   </div>
 </section>
 
-{{!-- {{else}}<a href="/login">Log in to see this page</a>
-{{/if}} --}}
 {{!-- <script src="../public/js/comment.js"></script> --}}
