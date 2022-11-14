@@ -18,12 +18,23 @@ const authMiddleware = require('../utils/authMiddleware')
 
 // GET login page
 router.get('/', async (req, res) => {
-  try {
-      res.render('login');
-  } catch (err) {
-      res.status(500).json(err);
+  if (req.session.loggedIn) {
+    res.redirect('/home');
+    return;
+  }
+  // otherwise, lets user log in
+  else {
+    res.render('login');
   }
 });
+
+
+//   try {
+//       res.render('login');
+//   } catch (err) {
+//       res.status(500).json(err);
+//   }
+// });
 
 // GET all sports cards
 router.get('/home', authMiddleware, async (req, res) => {
@@ -119,7 +130,9 @@ router.get('/login', (req, res) => {
       return;
     }
     // otherwise, lets user log in
-    res.render('login');
+    else {
+      res.render('login');
+    }
   });
 // router.post('/login', async (req, res) => {
 //   try {
