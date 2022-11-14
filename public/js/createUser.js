@@ -6,6 +6,7 @@ const createEmail = document.querySelector('#email-signup');
 const createFirst = document.querySelector('#firstName-signup');
 const createLast = document.querySelector('#lastName-signup');
 const createPhone = document.querySelector('#phone-signup');
+const createBio = document.querySelector('#bio-signup');
 const signupFormHandler = async (event) => {
   event.preventDefault();
   const username = createUser.value.trim();
@@ -15,6 +16,7 @@ const signupFormHandler = async (event) => {
   const firstName = createFirst.value.trim();
   const lastName = createLast.value.trim();
   const phone_number = createPhone.value.trim();
+  const bio = createBio.value.trim();
 
   if(password===confirmPassword){
     if (username && email && password && phone_number) {
