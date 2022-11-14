@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const {User, Sport, Post } = require('../models');
+const authMiddleware = require('../utils/authMiddleware')
 
 // GET all sports cards
 // router.get('/', async (req, res) => {
@@ -25,7 +26,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET all sports cards
-router.get('/home', async (req, res) => {
+router.get('/home', authMiddleware, async (req, res) => {
   const dbSportData = await Sport.findAll();
   const sport = dbSportData.map((sport) =>
   sport.get({ plain: true })
@@ -133,46 +134,46 @@ router.get('/login', (req, res) => {
     }
     res.render('login');
   });
-router.post('/login', async (req, res) => {
-  try {
-    const userData = await User.findOne({
-      where: {
-        username: req.body.username,
-      },
-    });
+// router.post('/login', async (req, res) => {
+//   try {
+//     const userData = await User.findOne({
+//       where: {
+//         username: req.body.username,
+//       },
+//     });
 
-    if (!userData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password. Please try again!' });
-      return;
-    }
+//     if (!userData) {
+//       res
+//         .status(400)
+//         .json({ message: 'Incorrect username or password. Please try again!' });
+//       return;
+//     }
 
-    const validPassword = await userData.checkPassword(req.body.password);
+//     const validPassword = await userData.checkPassword(req.body.password);
 
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username or password. Please try again!' });
-      return;
-    }
+//     if (!validPassword) {
+//       res
+//         .status(400)
+//         .json({ message: 'Incorrect username or password. Please try again!' });
+//       return;
+//     }
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      console.log(
-        ' ~ file: user-routes.js ~ req.session.save ~ req.session.cookie',
-        req.session.cookie
-      );
+//     req.session.save(() => {
+//       req.session.loggedIn = true;
+//       console.log(
+//         ' ~ file: user-routes.js ~ req.session.save ~ req.session.cookie',
+//         req.session.cookie
+//       );
 
-      res
-        .status(200)
-        .json({ user: userData, message: 'You are now logged in!' });
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//       res
+//         .status(200)
+//         .json({ user: userData, message: 'You are now logged in!' });
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/:id', async (req, res) => {
   try {

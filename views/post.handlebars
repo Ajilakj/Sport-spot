@@ -1,18 +1,20 @@
-{{!-- {{#if loggedIn}} --}}
+{{#if loggedIn}}
 <section class="post">
   <div class="post-details">
     <h3>{{post.title}}</h3>
-    <h5>{{user.username}}</h5>
-    <h5>{{post.date_created}}</h5>
+    <h5>{{post.user.username}}</h5>
+    <p>{{format_date post.date_created}}</p>
     <p>{{post.content}}</p>
-    <button id="add-comment-btn">Add comment</button>
+    {{!-- duplicate button --}}
+    {{!-- <button id="add-comment-btn">Add comment</button> --}}
   </div>
 </section>
 
 <!-- comment form -->
+<section class="comment-section">
 <form class="form comment-form" action="/sport/post/" method="post">
   <div>
-    <label for="comment">Comment</label>
+    <label for="comment">Add a comment</label>
     <input id="comment-content" type="text" required />
   </div>
 
@@ -20,17 +22,25 @@
     <button id="submit-comment" type="submit">Submit</button>
   </div>
 </form>
+</section>
 
 
 
 <!-- Otherwise, provide a link to login -->
-{{!-- {{else}}<a href="/login">Log in to see this page</a>
-{{/if}} --}}
+
+{{else}}<a href="/login">Log in to see this page</a>
+{{/if}}
 </section>
 
-{{#each comments as |comment|}}
-{{> comment-details}}
-{{/each}}
 
 
-<script src="../public/js/comment.js"></script>
+<section class="existing-comments">
+  <h5>Comments<h5>
+  <div class="comments">
+    {{#each comments as |comment|}}
+    {{> comment-details}}
+    {{/each}}
+  </div>
+</section>
+
+{{!-- <script src="../public/js/comment.js"></script> --}}
