@@ -1,5 +1,8 @@
+const router = require('express').Router();
+const {User, Sport, Post } = require('../../models');
+
 //POST for blog post to create a new post
-router.post('/post/create', async (req, res) => {
+router.post('/create', async (req, res) => {
     try {
       const postData = await Post.create({
         ...req.body, 
@@ -9,7 +12,7 @@ router.post('/post/create', async (req, res) => {
         // looking_for_players: req.body.looking_for_players,
         // looking_for_coach: req.body.looking_for_coach,
         // looking_for_students: req.body.looking_for_students,
-        date_posted: Date.toLocalDateString(),
+        date_posted: new Date().toLocaleDateString(),
     });
     //not really needed here since should be logged in, need nothing here as global variable
       // req.session.save(() => {
@@ -23,7 +26,7 @@ router.post('/post/create', async (req, res) => {
   });
   
   //PUT route for user to edit their own blog posts
-  router.put('/post/:id', (req, res) => {
+  router.put('/:id', (req, res) => {
     Post.update(
       {
         ...req.body, 
@@ -37,7 +40,7 @@ router.post('/post/create', async (req, res) => {
         // looking_for_coach: req.body.looking_for_coach,
         // looking_for_students: req.body.looking_for_students,
         //updated posts populate near top so new information isn't buried, in future any abuse of this system of dates could be punished on the site
-        date_posted: Date.toLocalDateString(),
+        date_posted: new Date().toLocaleDateString(),
       },
       {
         // Gets the blog post based on id
@@ -53,3 +56,5 @@ router.post('/post/create', async (req, res) => {
       .catch((err) => res.json(err));
   });
   
+
+module.exports = router;

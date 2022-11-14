@@ -44,7 +44,6 @@ router.get('/home', async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
-<<<<<<< HEAD
 
 // GET one sport with all posts for that sport
 router.get('/sport/:id', async (req, res) => {
@@ -92,8 +91,6 @@ router.post('/create-user', async (req, res) => {
   }
 });
 //added this code below to associate a user with any blog post they create
-=======
->>>>>>> main
 router.get('/post/create', async (req, res) => {
   const postsData = await Post.findAll({
     include: [User]

@@ -1,4 +1,4 @@
-{{#if loggedIn}}
+{{!-- {{#if loggedIn}} --}}
 {{!-- <section class="blog-post">
   <div class="blog-post-details">
     <h3>{{post.title}}</h3>
@@ -10,10 +10,15 @@
 </section> --}}
 
 <!-- creating and posting a new blog post -->
-<form class="form post-form" action="/sport/post/" method="post">
+<form class="form post-form">
   <div>
     <label for="post">Blog Post</label>
     <input id="post-content" type="text" required />
+     <label for="post">Blog Post</label>
+    <input id="post-content" type="text" required />
+     <label for="post">Blog Post</label>
+    {{!-- get rid of required if not required --}}
+    <input id="post-content" type="text"/>
   </div>
 
   <div>
@@ -23,8 +28,8 @@
 
 
 <!-- Ask them to login via login link supplied -->
-{{else}}<a href="/login">Please log in to view this page</a>
-{{/if}}
+{{!-- {{else}}<a href="/login">Please log in to view this page</a>
+{{/if}} --}}
 </section>
 
 {{#each posts as |post|}}
