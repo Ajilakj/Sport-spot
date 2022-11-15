@@ -39,18 +39,5 @@ router.get('/:id', authMiddleware, async (req, res) => {
     }
   });
 
-// add comment
-// router.post('/:id/comment', async (req, res) => {
-//   try {
-//     Comment.create(req.body).then((comment) => {
-//       console.log(comment)
-//       res.redirect(`/:id`)
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
 
   module.exports=router;
