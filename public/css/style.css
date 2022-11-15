@@ -31,6 +31,7 @@ footer p {
 
 nav {
     background-color: rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
 }
 
 #nav-link {
@@ -142,6 +143,7 @@ nav {
 .sport-card {
     margin: 20px;
     padding: 0px;
+    border: none;
 }
 
 .sport-card .card-title {
@@ -208,7 +210,22 @@ nav {
     transition: .3s;
 }
 
+
+
 /* Single Post & Comments */
+
+#comment-user {
+    margin: 45;
+}
+
+#comment-time {
+    margin: 30px;
+}
+
+#comment-content {
+    margin: 30px;
+}
+
 
 
 /* Creating a Post */
