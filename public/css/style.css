@@ -5,8 +5,13 @@
 
 /* App Header and Nav Bar */
 header {
-    background-color: rgba(0, 0, 0, 0.8);
-    height: 80px;
+    background-color:#42594e;
+    height: 128px;
+}
+
+#logo {
+    width: 80px;
+    display: flex;
 }
 
 h1 {
@@ -16,21 +21,8 @@ h1 {
     transition: 500ms ease-in-out;
 }
 
-footer {
-    background-color: #34473ec0;
-    height: 75px;
-    color: white;
-}
-
-footer p {
-    color: white;
-    font-size: 13pt;
-    font-weight: 200;
-    padding: 25px;
-}
-
 nav {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color:#42594e;
     white-space: nowrap;
 }
 
@@ -41,8 +33,6 @@ nav {
     font-size: 17px;
     font-weight: 300;
     padding: 8px;
-    text-align: center;
-
 }
 
 #nav-link:hover {
