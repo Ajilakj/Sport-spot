@@ -31,6 +31,7 @@ footer p {
 
 nav {
     background-color: rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
 }
 
 #nav-link {
@@ -132,28 +133,30 @@ nav {
 
 
 /* Home Page - Sports Cards */
-.sports-container {
+.sports {
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.sports {
-    margin:30px;
-    width: 50%
-}
-
 .sport-card {
-    margin: 50px;
-    display: inline-block;
+    margin: 20px;
+    padding: 0px;
+    border: none;
 }
 
 .sport-card .card-title {
     color: white;
-    font-size: 28pt;
     font-weight: 500;
-    position: relative;
-    justify-content: end;
+    font-size: 25px;
+    margin: 15px;
+}
+
+@media screen and (max-width: 800px) {
+    .sport-card .card-title {
+        font-size: 18px;
+    }
 }
 
 .sport-card:hover {
@@ -161,10 +164,15 @@ nav {
     transition: .5s;
 }
 
+.sport-card img {
+    padding: 0px;
+}
+
 .card-img-overlay:hover {
     background-color: rgba(0, 0, 0, 0.31);
     transition: .3s;
 }
+
 
 /* Sport Posts */
 
@@ -202,7 +210,71 @@ nav {
     transition: .3s;
 }
 
+
+
 /* Single Post & Comments */
+
+.post-details {
+    margin: 45px;
+    color: #42594e;
+}
+
+.post-details h3 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+#comments-sec {
+        color: #42594e;
+}
+
+.comment-section {
+    margin: 45px;
+    color: #42594e;
+}
+
+.existing-comments {
+    margin: 45px;
+    margin-top: 60px;
+    color: #618775;
+}
+
+#comment-user {
+    margin: 20px;
+    font-size: 14pt;
+}
+
+#comment-time {
+    margin: 20px;
+    font-size: 13pt;
+}
+
+.comment-card p {
+    margin: 20px;
+    font-size: 12pt;
+    font-weight: 300;
+}
+
+.comment-section button {
+    margin-top: 30px;
+    padding: 3px 15px 3px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #e4faef;
+    color: #42594e;
+    font-weight: 300;
+}
+
+.comment-form input{
+    margin-top: 10px;
+    display: block;
+}
+
+.comment-section button:hover {
+    background-color: #618775;
+    color: white;
+    transition: .3s;
+}
 
 
 /* Creating a Post */
