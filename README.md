@@ -41,9 +41,8 @@ Users can navigate to any sport offered and view all of the relevant posts. User
 
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+![sportspot](./assets/images/screenshot.png)
+
 
 ## Technologies
 
@@ -67,5 +66,3 @@ Collaborators:
 ## License
 
 This application is covered by [MIT License](https://choosealicense.com/licenses/mit/).
-
-## Tests
