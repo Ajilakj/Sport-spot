@@ -152,7 +152,12 @@ nav {
     font-size: 25px;
     margin: 15px;
 }
-
+.form-row{
+    display: flex;
+}
+.form-column{
+    width: 45%;
+}
 @media screen and (max-width: 800px) {
     .sport-card .card-title {
         font-size: 18px;
