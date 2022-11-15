@@ -6,12 +6,12 @@
 /* App Header and Nav Bar */
 header {
     background-color:#42594e;
-    height: 128px;
+    height: 100px;
 }
 
 #logo {
     width: 80px;
-    display: flex;
+    float: right;
 }
 
 h1 {
