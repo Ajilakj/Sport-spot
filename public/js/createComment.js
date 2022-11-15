@@ -1,4 +1,4 @@
-const addCommentForm = document.getElementById("comment-form");
+
 
 async function addComment(newComment, postID) {
   const response = await fetch (`api/comment/${postID}`, {
@@ -28,4 +28,7 @@ const createCommentFormHandler = async (event) => {
   }, 750);
 };
 
-addCommentForm.addEventListener("submit", createCommentFormHandler);
+const addCommentBtn = document.getElementById("submit-comment");
+if(addCommentBtn) {
+  addCommentBtn.addEventListener("submit", createCommentFormHandler);
+}
