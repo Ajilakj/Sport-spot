@@ -21,9 +21,8 @@ router.get("/", async (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/home");
     return;
-  }
-  // otherwise, lets user log in
-  else {
+  }else {
+    // otherwise, lets user log in
     res.render("login");
   }
 });
@@ -127,9 +126,8 @@ router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/home");
     return;
-  }
-  // otherwise, lets user log in
-  else {
+  }else {
+    // otherwise, lets user log in
     res.render("login");
   }
 });

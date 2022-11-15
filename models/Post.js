@@ -36,8 +36,7 @@ Post.init(
       type: DataTypes.INTEGER,
       references: {
         model: "sport",
-        key: "id"
-      }
+        key: "id" }
     },
     user_id: {
       type: DataTypes.INTEGER,

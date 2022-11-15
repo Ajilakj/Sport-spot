@@ -1,18 +1,15 @@
-{{!-- {{#if loggedIn}} --}}
 <section class="post">
   <div class="post-details">
     <h3>{{post.title}}</h3>
     <h5>{{post.user.username}}</h5>
     <p>{{format_date post.date_created}}</p>
     <p>{{post.content}}</p>
-    {{!-- duplicate button --}}
-    {{!-- <button id="add-comment-btn">Add comment</button> --}}
   </div>
 </section>
 
 <!-- comment form -->
 <section class="comment-section">
-<form class="form comment-form" action="/sport/post/" method="post">
+<form class="form comment-form">
   <div>
     <label for="comment">Add a comment</label>
     <input id="comment-content" type="text" required />
@@ -24,14 +21,7 @@
 </form>
 </section>
 
-
-
-<!-- Otherwise, provide a link to login -->
-
-</section>
-
-
-
+<!-- existing comments -->
 <section class="existing-comments">
   <h5>Comments<h5>
   <div class="comments">
@@ -41,6 +31,4 @@
   </div>
 </section>
 
-{{!-- {{else}}<a href="/login">Log in to see this page</a>
-{{/if}} --}}
-{{!-- <script src="../public/js/comment.js"></script> --}}
+<script src="/js/comment.js"></script>
