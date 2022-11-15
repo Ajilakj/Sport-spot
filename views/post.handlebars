@@ -1,7 +1,7 @@
 <section class="post">
   <div class="post-details">
     <h3>{{post.title}}</h3>
-    <h5>{{post.user.username}}</h5>
+    <h5><a href="/profile/{{post.user_id}}">{{post.user.username}}</a></h5>
     <p>{{format_date post.date_created}}</p>
     <p>{{post.content}}</p>
   </div>
