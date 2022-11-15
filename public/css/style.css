@@ -132,28 +132,29 @@ nav {
 
 
 /* Home Page - Sports Cards */
-.sports-container {
+.sports {
+    margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.sports {
-    margin:30px;
-    width: 50%
-}
-
 .sport-card {
-    margin: 50px;
-    display: inline-block;
+    margin: 20px;
+    padding: 0px;
 }
 
 .sport-card .card-title {
     color: white;
-    font-size: 28pt;
     font-weight: 500;
-    position: relative;
-    justify-content: end;
+    font-size: 25px;
+    margin: 15px;
+}
+
+@media screen and (max-width: 800px) {
+    .sport-card .card-title {
+        font-size: 18px;
+    }
 }
 
 .sport-card:hover {
@@ -161,10 +162,15 @@ nav {
     transition: .5s;
 }
 
+.sport-card img {
+    padding: 0px;
+}
+
 .card-img-overlay:hover {
     background-color: rgba(0, 0, 0, 0.31);
     transition: .3s;
 }
+
 
 /* Sport Posts */
 
