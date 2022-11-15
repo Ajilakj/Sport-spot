@@ -1,26 +1,30 @@
-const commentButton = document.getElementById("add-comment-btn");
+const addCommentForm = document.getElementById("comment-form");
 
-const createCommentFormHandler = async (event) => {
-    event.preventDefault();
-    const commentContent = document.querySelector("#comment-content").value;
-    if (commentContent) {
-        const response = await fetch ('/api/comment/create', {
-            method: 'POST',
-            body: JSON.stringify({content}),
-            headers: {'Content-Type': 'application/json'},
-        });
-        const result = await response.json()
-        console.log(result)
-        if (response.ok) {
-            location.reload()
-        } else {
-            alert('An error has occured in generating your comment')
-        }
-    }
-};
-
-const createComment = async (event) => {
-    event.preventDefault();
+async function addComment(newComment, postID) {
+  const response = await fetch (`api/comment/${postID}`, {
+    method: "POST",
+    body: JSON.stringify({
+      commentContents: newComment,
+      post_id: postID,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.ok) {
+    document.location.replace(`/post/${postID}`);
+  } else {
+    alert(response.statusText);
+  }
 }
 
-commentButton.addEventListener('click', createCommentFormHandler);
+const createCommentFormHandler = async (event) => {
+  event.preventDefault();
+
+  const commentText = document.querySelector("comment-content").value;
+  setTimeout(() => {
+    addComment(commentText, postID);
+  }, 750);
+};
+
+addCommentForm.addEventListener("submit", createCommentFormHandler);
