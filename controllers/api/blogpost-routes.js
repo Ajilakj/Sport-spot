@@ -23,8 +23,8 @@ router.put("/:id", authMiddleware, (req, res) => {
     {
       //leaning out code by doing the spread operator
       ...req.body,
-      // letting them edit all fields so if for example looking for 5 players then get a few and now only need 2 that they can update the post to reflect what they currently need
-      //updated posts populate near top so new information isn"t buried, in future any abuse of this system of dates could be punished on the site
+      // future development: allow users to edit all fields so if for example looking for 5 players then get a few and now only need 2 that they can update the post to reflect what they currently need
+      //updated posts populate near top so new information isn't buried, in future any abuse of this system of dates could be punished on the site
       date_posted: new Date().toLocaleDateString(),
     },
     {

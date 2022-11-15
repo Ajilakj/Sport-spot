@@ -1,3 +1,4 @@
+{{!-- {{#if loggedIn}} --}}
 <section class="post">
   <div class="post-details">
     <h3>{{post.title}}</h3>
@@ -9,7 +10,7 @@
 
 <!-- comment form -->
 <section class="comment-section">
-<form class="form comment-form">
+<form class="form comment-form" action="/sport/post/" method="post">
   <div>
     <label for="comment">Add a comment</label>
     <input id="comment-content" type="text" required />
@@ -20,6 +21,11 @@
   </div>
 </form>
 </section>
+
+
+
+<!-- Otherwise, provide a link to login -->
+
 
 <!-- existing comments -->
 <section class="existing-comments">
