@@ -1,40 +1,41 @@
 {{#if loggedIn}}
 
 <!-- creating and posting a new blog post -->
+<h1 class="create-post">Create a Post</h1>
 <form class="form post-form">
   <div>
-    <label for="post">Blog Title: </label>
-    <input id="post-title" type="text" required />
-    <label for="post">Blog Post: </label>
+    <label for="post" id="blog-title">Title: </label>
+    <input id="post-title" type="text" placeholder="required" />
+  </div>
+  <div>
+    <label for="post" id="blog-post">Post Content: </label>
     <input id="post-content" type="text"/>
   </div>
 
-
-</section>
-
-<section class="blog-post">
-  <div class="blog-post-details">
-<label for="sport">Please Choose a Sport from the Dropdown Menu:</label>
-<div></div>
-<select name="sport" id="selectsport" required>
-  <option disabled selected hidden>Select Sport</option> 
-  <option value="1">Basketball</option>
-  <option value="2">Tennis</option>
-  <option value="3">Soccer</option>
-  <option value="4">Volleyball</option>
-</select> 
-</div>   
-<label for="checkbox">Please Check All Relevant Boxes:</label>
-<div>
-<input type="checkbox" id="playerscheckbox" name="playerscheckbox">
-<label for="playerscheckbox"> Looking for Players</label><br>
-<input type="checkbox" id="coachcheckbox" name="coachcheckbox">
-<label for="coachcheckbox"> Looking for Coach</label><br>
-<input type="checkbox" id="studentscheckbox" name="studentscheckbox">
-<label for="studentscheckbox"> Looking for Students</label><br>
-</div>
-<button id="add-blog-post-btn">Create New Blog Post</button>
-</section>
+  <section class="blog-post">
+    <div class="blog-post-details">
+      <label for="sport" id="prompt">Please Choose a Sport from the Dropdown Menu:</label>
+    </div>
+    <div>
+      <select name="sport" id="selectsport" required>
+        <option disabled selected hidden>Select Sport</option> 
+        <option value="1">Basketball</option>
+        <option value="2">Tennis</option>
+        <option value="3">Soccer</option>
+        <option value="4">Volleyball</option>
+      </select> 
+    </div>   
+    <label for="checkbox" id="prompt">Please Check All Relevant Boxes:</label>
+    <div>
+      <input type="checkbox" id="playerscheckbox" name="playerscheckbox">
+      <label for="playerscheckbox"> Looking for Players</label><br>
+      <input type="checkbox" id="coachcheckbox" name="coachcheckbox">
+      <label for="coachcheckbox"> Looking for Coach</label><br>
+      <input type="checkbox" id="studentscheckbox" name="studentscheckbox">
+      <label for="studentscheckbox"> Looking for Students</label><br>
+    </div>
+    <button id="add-blog-post-btn">Create New Post</button>
+  </section>
 </form>
 {{!-- {{#each posts as |post|}} --}}
     {{!-- <h3>{{post.title}}</h3> --}}
