@@ -1,3 +1,4 @@
+{{!-- {{#if loggedIn}} --}}
 <section class="post">
   <div class="post-details">
     <h3>{{post.title}}</h3>
@@ -9,30 +10,36 @@
   </div>
 </section>
 
+<!-- comment form -->
+<section class="comment-section">
+<form class="form comment-form" action="/sport/post/" method="post">
+  <div>
+    <label for="comment">Add a comment</label>
+    <input id="comment-content" type="text" required />
+  </div>
+
+  <div>
+    <button id="submit-comment" type="submit">Submit</button>
+  </div>
+</form>
+</section>
+
+
+
+<!-- Otherwise, provide a link to login -->
+
+</section>
+
+
 
 <section class="existing-comments">
-  <h5 id="comments-sec">Comments<h5>
+  <h5>Comments<h5>
   <div class="comments">
     {{#each comments as |comment|}}
     {{> comment-details}}
     {{/each}}
   </div>
 </section>
-
-<!-- comment form -->
-<section class="comment-section">
-  <form class="form comment-form" action="/sport/post/" method="post">
-    <div>
-      <label for="comment">Add a comment</label>
-      <input id="comment-content" type="text" required />
-    </div>
-
-    <div>
-      <button id="submit-comment" type="submit">Submit</button>
-    </div>
-  </form>
-</section>
-
 
 {{!-- {{else}}<a href="/login">Log in to see this page</a>
 {{/if}} --}}
