@@ -4,7 +4,7 @@ const authMiddleware = require('../../utils/authMiddleware')
 
 // POST for create comment
 // add comment
-router.post('/create', async (req, res) => {
+router.post('/create', authMiddleware, async (req, res) => {
   try {
     const commentData = await Comment.create({
         ...req.body,
