@@ -27,15 +27,4 @@ router.get("/:id", authMiddleware, async (req, res) => {
   res.render("sport-posts", {posts,sportsName});
 });
 
-// Get all sports
-// router.get("/home", async (req, res) => {
-// const dbSportData = await Sport.findAll();
-// const sport = dbSportData.map((sport) =>
-// sport.get({ plain: true })
-//       );
-//       res.render("homepage", {
-//       sport
-//       });
-// });
-
 module.exports=router;

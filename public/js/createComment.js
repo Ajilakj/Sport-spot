@@ -22,6 +22,7 @@ const createCommentFormHandler = async (event) => {
   event.preventDefault();
 
   const commentText = document.querySelector("comment-content").value;
+  const postID = window.location.pathname.split("/")[2];
   setTimeout(() => {
     addComment(commentText, postID);
   }, 750);
