@@ -207,5 +207,66 @@ nav {
 
 /* Creating a Post */
 
+.create-post {
+    margin: 30px;
+    color: black;
+    font-weight: 200;
+    font-size: 40pt;
+}
+
+.post-form {
+    margin: 50px;
+}
+
+.post-form div {
+    padding: 10px;
+}
+
+.choice-prompt {
+    font-size: 30pt;
+}
+
+#blog-title {
+    display: block;
+    font-size: 18pt;
+}
+
+#post-title {
+    margin-bottom: 10px;
+}
+
+#blog-post {
+    display: block;
+    font-size: 13pt;
+}
+
+#post-content {
+    margin-bottom: 35pt;
+}
+
+#prompt {
+    font-size: 15pt;
+}
+
+#selectsport {
+    margin-bottom: 45pt;
+}
+
+#add-blog-post-btn {
+    margin-top: 50px;
+    padding: 3px 15px 3px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #cbebda;
+    color: #42594e;
+    font-weight: 300;
+    font-size: 12pt;
+}
+
+#add-blog-post-btn:hover {
+    background-color: #78a28e;
+    color: white;
+    transition: .3s;
+} 
 
 /* Profile Page */

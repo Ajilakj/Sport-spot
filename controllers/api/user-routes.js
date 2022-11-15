@@ -1,11 +1,11 @@
-const router = require('express').Router();
-const { User } = require('../../models');
+const router = require("express").Router();
+const { User } = require("../../models");
 
 // route is /users
 
 // CREATE new user
 // sign up
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const userData = await User.create({
       username: req.body.username,
@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
     });
 
     req.session.save(() => {
-      req.session.userId=userData.id; 
+      req.session.userId=userData.id;
       req.session.loggedIn = true;
 
       res.status(200).json(userData);
@@ -26,10 +26,10 @@ router.post('/', async (req, res) => {
 });
 
 //////////////////////////////////////////////////////////
-      // **** Moved this over to home-routes ***** //
+// **** Moved this over to home-routes ***** //
 
 // Login
-// router.post('/login', async (req, res) => {
+// router.post("/login", async (req, res) => {
 //   try {
 //     const userData = await User.findOne({
 //       where: {
@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 //     if (!userData) {
 //       res
 //         .status(400)
-//         .json({ message: 'Incorrect username or password. Please try again!' });
+//         .json({ message: "Incorrect username or password. Please try again!" });
 //       return;
 //     }
 
@@ -49,20 +49,20 @@ router.post('/', async (req, res) => {
 //     if (!validPassword) {
 //       res
 //         .status(400)
-//         .json({ message: 'Incorrect username or password. Please try again!' });
+//         .json({ message: "Incorrect username or password. Please try again!" });
 //       return;
 //     }
 
 //     req.session.save(() => {
 //       req.session.loggedIn = true;
 //       console.log(
-//         '🚀 ~ file: user-routes.js ~ req.session.save ~ req.session.cookie',
+//         "🚀 ~ file: user-routes.js ~ req.session.save ~ req.session.cookie",
 //         req.session.cookie
 //       );
 
 //       res
 //         .status(200)
-//         .json({ user: userData, message: 'You are now logged in!' });
+//         .json({ user: userData, message: "You are now logged in!" });
 //     });
 //   } catch (err) {
 //     console.log(err);
@@ -74,7 +74,7 @@ router.post('/', async (req, res) => {
 
 
 // Logout
-router.get('/logout', (req, res) => {
+router.get("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).redirect("/");
@@ -86,21 +86,21 @@ router.get('/logout', (req, res) => {
 
 
 // view profile
-// will req.body.username remain in order to display that user's profile?
-router.get('/profile', async (req, res) => {
+// will req.body.username remain in order to display that user"s profile?
+router.get("/profile", async (req, res) => {
   try {
-     const userData = await User.findOne({
+    const userData = await User.findOne({
       where: {
         username: req.body.username,
       }
-    })
+    });
     const user = userData.get({ plain: true });
-    res.render('user', user);
+    res.render("user", user);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
-})
+});
 
 
 module.exports = router;
