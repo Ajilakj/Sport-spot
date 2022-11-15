@@ -1,7 +1,9 @@
 
 
 async function addComment(newComment, postID) {
-  const response = await fetch (`api/comment/${postID}`, {
+  console.log(newComment);
+  console.log(postID);
+  const response = await fetch ("api/comment", {
     method: "POST",
     body: JSON.stringify({
       commentContents: newComment,
@@ -22,7 +24,9 @@ const createCommentFormHandler = async (event) => {
   event.preventDefault();
 
   const commentText = document.querySelector("comment-content").value;
+  console.log(commentText);
   const postID = window.location.pathname.split("/")[2];
+  console.log(postID);
   setTimeout(() => {
     addComment(commentText, postID);
   }, 750);
