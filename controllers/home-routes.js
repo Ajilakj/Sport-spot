@@ -97,7 +97,6 @@ router.get('/post/create', async (req, res) => {
 })
 
 
-
 // // GET one blog post
 // router.get('/post/:id', async (req, res) => {
 //   try {
