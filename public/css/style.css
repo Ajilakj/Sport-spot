@@ -342,3 +342,53 @@ nav {
 } 
 
 /* Profile Page */
+
+.profile {
+    display: flex;
+    flex-direction: column;
+}
+
+#profile-username {
+    margin: 75px;
+    font-size: 45pt;
+    font-weight: 100;
+}
+
+#profile-details {
+    text-align: center;
+}
+
+#profile-details h4 {
+    margin: 10px;
+    font-size: 21pt;
+    color:#618775;
+}
+
+#profile-name {
+    margin-top: 35px;
+    font-size: 18pt;
+}
+
+#profile-bio {
+    margin: 15px;
+}
+
+#profile-contact {
+    margin-top: 50px;
+    text-align: center;
+}
+
+#profile-contact h4 {
+    margin: 10px;
+    font-size: 21pt;
+    color:#618775;
+}
+
+#profile-email {
+    margin-top: 35px;
+    text-align: left;
+}
+
+#profile-phone {
+    text-align: left;
+}
