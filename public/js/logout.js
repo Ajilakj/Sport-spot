@@ -1,21 +1,4 @@
-const logout = async () => {
-  if (req.session){
-    req.session.destroy(err => {
-      if (err) {
-        res.status(400).send('Unable to log out')
-      } else {
-        res.redirect('/')
-      }
-    });
-  } else {
-    res.end()
-  }
-}
-
-  
-  
-  
-  
+// const logout = async () => {
 //   const response = await fetch("/api/users/logout", {
 //     method: "POST",
 //     headers: { "Content-Type": "application/json" },
@@ -28,6 +11,6 @@ const logout = async () => {
 //   }
 // };
 
-document
-  .getElementById("logout-btn")
-  .addEventListener("click", logout);
+// document
+//   .getElementById("logout-btn")
+//   .addEventListener("click", logout);

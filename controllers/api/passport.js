@@ -6,8 +6,6 @@ var passport = require("../../config/passport");
 // Otherwise the user will be sent an error
 router.post("/login", passport.authenticate("local"), function(req, res) {
   // Sending back a password, even a hashed password, isn"t a good idea
-  console.log("We're logginin with passport");
-
   req.session.save(() => {
     req.session.userId=req.user.id;
     req.session.loggedIn = true;
