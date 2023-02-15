@@ -4,13 +4,13 @@ const {User, Sport, Post} = require("../models");
 
 // GET login page
 router.get("/", async (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/home");
-    return;
-  }else {
-    // otherwise, lets user log in
-    res.render("login");
-  }
+  // if (req.session.loggedIn) {
+  res.redirect("/home");
+//     return;
+//   }else {
+//     // otherwise, lets user log in
+//     res.render("login");
+//   }
 });
 
 // GET all sports cards
