@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const {User, Sport, Post} = require("../models");
-const authMiddleware = require("../utils/authMiddleware");
+// const authMiddleware = require("../utils/authMiddleware");
 
 // GET login page
 router.get("/", async (req, res) => {
@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
 });
 
 // GET all sports cards
-router.get("/home", authMiddleware, async (req, res) => {
+router.get("/home", async (req, res) => {
   const dbSportData = await Sport.findAll();
   const sport = dbSportData.map((sport) =>
     sport.get({ plain: true })
